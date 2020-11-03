@@ -1,11 +1,11 @@
 FVTT Magicalogia System
 -------------------
-Multi Genre Horror TRPG Insane
+Magicalogia System
 
 
 Installation Instructions
 -------------
-To install the Insane system for Foundry Virtual Tabletop, simply paste the following URL into the Install System
+To install the Magicalogia system for Foundry Virtual Tabletop, simply paste the following URL into the Install System
 dialog on the Setup menu of the application.
 
 https://raw.githubusercontent.com/ksx0330/FVTT-Magicalogia-System/main/system.json
