@@ -1,0 +1,157 @@
+{
+"Actor": {
+  "types": ["character"],
+  "character": {
+    "mana": {
+      "value": 0,
+      "min": 0,
+      "max": 0
+    },
+    "tmp_mana": {
+      "value": 0,
+      "min": 0
+    },
+    "talent": {
+        "table":[ 
+            [{"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}],
+
+            [{"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}],
+
+            [{"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}],
+
+            [{"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}],
+
+            [{"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}],
+
+            [{"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}, 
+            {"misfortune": false, "state": false, "num": 12}] 
+
+        ],
+        "curiosity": 0,
+        "spirit_talent": {
+            "name": "",
+            "misfortune": false
+        }
+    },
+    "true_look": {
+        "check": false,
+        "name": "",
+        "effect": ""
+    },
+    "duty": "",
+    "status": {
+        "seal": false,
+        "burn": false,
+        "weakness": false,
+        "sickness": false,
+        "block": false,
+        "misfortune": false,
+        "death": false,
+        "extinction": false
+    },
+    "details": {
+        "tmp_name": "",
+        "age": "",
+        "sex": "",
+        "grade": "",
+        "attack": "",
+        "defence": "",
+        "root_force": "",
+        "career": "",
+        "agency": "",
+        "identify": "",
+        "exp": "",
+        "exp_abstruct": "",
+        "biography": ""
+    }
+  }
+},
+"Item": {
+    "types": ["bond", "ability", "item"],
+    "bond": {
+        "check": false,
+        "destiny": "",
+        "attribute": "",
+        "description": ""
+    },
+    "ability": {
+        "check": false,
+        "type": "",
+        "class": "",
+        "mana_mark": "",
+        "talent": "",
+        "target": "",
+        "cost": "",
+        "word": "",
+        "charge": 0,
+        "word_check": false,
+        "description": ""
+    },
+    "item": {
+        "description": "",
+        "requirement": "",
+        "require_exp":  1,
+        "quantity": 1,
+        "format": ""
+    }
+}
+}

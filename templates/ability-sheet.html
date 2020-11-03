@@ -1,0 +1,92 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <div class="header-fields">
+            <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+
+            <table>
+                <colgroup>
+                    <col span="1" style="width: 15%;">
+                    <col span="1" style="width: 25%;">
+                    <col span="1" style="width: 25%;">
+                    <col span="1" style="width: 20%;">
+                    <col span="1" style="width: 15%;">
+                </colgroup>
+
+                <tbody>
+                    <tr>
+                        <th colspan="1">{{localize "MAGICALOGIA.Seal"}}</th>
+                        <th colspan="2">{{localize "MAGICALOGIA.Class"}}</th>
+                        <th colspan="2">{{localize "MAGICALOGIA.ManaMark"}}</th>
+                    </tr>
+
+                    <tr>
+                        <td colspan="1"><input type="checkbox" name="data.check" {{#if data.check}} checked {{/if}} /></td>
+                        <td colspan="2"><input type="text" class="string-input" name="data.class" value="{{data.class}}" data-dtype="String"/></td>
+                        <td colspan="2"><input type="text" class="string-input" name="data.mana_mark" value="{{data.mana_mark}}" data-dtype="String"/></td>
+                    </tr>
+
+                    <tr>
+                        <th>{{localize "MAGICALOGIA.Type"}}</th>
+                        <th>{{localize "MAGICALOGIA.Talent"}}</th>
+                        <th>{{localize "MAGICALOGIA.Target"}}</th>
+                        <th>{{localize "MAGICALOGIA.Cost"}}</th>
+                        <th>{{localize "MAGICALOGIA.Charge"}}</th>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <select name="data.type" style="width: 100%">
+                                {{#select data.type}}
+                                <option value="{{localize "MAGICALOGIA.Summon"}}">{{localize "MAGICALOGIA.Summon"}}</option>
+                                <option value="{{localize "MAGICALOGIA.Spell"}}">{{localize "MAGICALOGIA.Spell"}}</option>
+                                <option value="{{localize "MAGICALOGIA.Equipment"}}">{{localize "MAGICALOGIA.Equipment"}}</option>
+                                {{/select}}
+                            </select>
+                        </td>
+
+                        <td><input type="text" class="string-input" name="data.talent" value="{{data.talent}}" data-dtype="String"/></td>
+
+                        <td><input type="text" class="string-input" name="data.target" value="{{data.target}}" data-dtype="String"/></td>
+
+                        <td><input type="text" class="string-input" name="data.cost" value="{{data.cost}}" data-dtype="String"/></td>
+
+                        <td><input type="text" class="string-input" name="data.charge" value="{{data.charge}}" data-dtype="String"/></td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+            <table>
+                <colgroup>
+                    <col span="1" style="width: 10%;">
+                    <col span="1" style="width: 5%;">
+                    <col span="1" style="width: 85%;">
+                </colgroup>
+
+                <tr>
+                    <th>{{localize "MAGICALOGIA.Word"}}</th>
+                    <td><input type="checkbox" name="data.word_check" {{#if data.word_check}} checked {{/if}} /></td>
+                    <td><textarea name="data.word">{{data.word}}</textarea></td>
+
+                </tr>
+
+            </table>
+        </div>
+    </header>
+
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+        <a class="item" data-tab="description">Description</a>
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+
+        {{!-- Description Tab --}}
+        <div class="tab" data-group="primary" data-tab="description">
+            {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+        </div>
+
+    </section>
+</form>
