@@ -1,0 +1,92 @@
+<form class="{{cssClass}} item" autocomplete="off">
+  <header class="sheet-header">
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+    <div class="header-fields flexrow">
+      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" ></h1>
+      <div class="charge">
+        <label>{{localize "MAGICALOGIA.Charge"}}</label>
+        <input name="system.charge" type="text" value="{{system.charge}}" />
+      </div>
+    </div>
+  </header>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+    {{!-- Description Tab --}}
+
+    <section class="sheet-attributes">
+
+      <div class="cell grid-4 space-between">
+        <label class="cell--title">
+          {{localize "MAGICALOGIA.Seal"}}
+          <input type="checkbox" class="cell--right" name="system.check" {{#if system.check}} checked {{/if}} />
+        </label>
+      </div>
+
+      <div class="cell grid-6 flexrow">
+        <label class="cell--title">
+          {{localize "MAGICALOGIA.Class"}}
+        </label>
+        <input type="text" name="system.class" value="{{system.class}}" data-dtype="String"/>
+      </div>
+
+      <div class="cell grid-6 flexrow">
+        <label class="cell--title">
+          {{localize "MAGICALOGIA.ManaMark"}}
+        </label>
+        <input type="text" name="system.mana_mark" value="{{system.mana_mark}}" data-dtype="String"/>
+      </div>
+
+
+      <div class="cell grid-4">
+        <label class="cell--title">
+          {{localize "MAGICALOGIA.Type"}}
+        </label>
+        <select name="system.type" class="">
+          {{#select system.type}}
+          <option value="{{localize "MAGICALOGIA.Summon"}}">{{localize "MAGICALOGIA.Summon"}}</option>
+          <option value="{{localize "MAGICALOGIA.Spell"}}">{{localize "MAGICALOGIA.Spell"}}</option>
+          <option value="{{localize "MAGICALOGIA.Equipment"}}">{{localize "MAGICALOGIA.Equipment"}}</option>
+          {{/select}}
+        </select>
+      </div>
+
+      <div class="cell grid-4">
+        <label class="cell--title">
+          {{localize "MAGICALOGIA.Talent"}}
+        </label>
+        <input type="text" name="system.talent" value="{{system.talent}}" data-dtype="String"/>
+      </div>
+
+      <div class="cell grid-4">
+        <label class="cell--title">
+          {{localize "MAGICALOGIA.Target"}}
+        </label>
+        <input type="text" name="system.target" value="{{system.target}}" data-dtype="String"/>
+      </div>
+
+      <div class="cell grid-4">
+        <label class="cell--title">
+          {{localize "MAGICALOGIA.Cost"}}
+        </label>
+        <input type="text" name="system.cost" value="{{system.cost}}" data-dtype="String"/>
+      </div>
+
+      <div class="cell grid-16 space-between">
+        <label class="cell--title">
+          {{localize "MAGICALOGIA.Word"}}
+          <input type="checkbox" class="cell--right" name="system.word_check" {{#if system.word_check}} checked {{/if}} />
+        </label>
+        <textarea name="system.word">{{system.word}}</textarea>
+      </div>
+
+
+
+
+    </section>
+
+    <h2 class="title">{{localize "MAGICALOGIA.Description"}}</h2>
+    {{editor enrichedBiography target="system.description" button=true editable=editable }}
+  </section>
+
+</form>

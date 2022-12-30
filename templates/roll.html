@@ -3,28 +3,28 @@
     <div class="dice-flavor">{{flavor}}</div>
     {{/if}}
     <div class="dice-result">
-        <div class="dice-formula">{{formula}}
-        {{#ifEquals num '-'}}
-        {{else}}
-         / {{num}}
-        {{/ifEquals}}
-        </div>
+        <div class="dice-formula">{{formula}} >= {{num}}</div>
         {{{tooltip}}}
-
         {{#if doublet}}
         <h4 class="dice-total" style="color: #4131c7; margin-bottom: 4px">
             <span>Doublet! - {{localize mana}}</span>
         </h4>
         {{/if}}
         <h4 class="dice-total">
-            {{#ifEquals num '-'}}
-                {{total}}
+            {{total}}
+            {{#if special}} 
+                <span style="color: #0f6f0f; font-size:0.7em;"> ▶ {{localize "MAGICALOGIA.Special"}} </span>
             {{else}}
-                {{#ifSuccess total num}} <span style="color: #0f6f0f">Success</span> 
-                {{else}}  <span style="color: #862020">Failed</span> {{/ifSuccess}} 
-
-                ({{total}})
-            {{/ifEquals}}
+                {{#if fumble}} <span style="color: #862020; font-size:0.7em;"> ▶ {{localize "MAGICALOGIA.Fumble"}} </span>
+                {{else}}
+                    {{#ifSuccess total num}} 
+                        <span style="color: #0f6f0f; font-size:0.7em;"> ▶ {{localize "MAGICALOGIA.Success"}}  </span>
+                    {{else}}
+                        <span style="color: #862020;font-size:0.7em;"> ▶ {{localize "MAGICALOGIA.Fail"}} </span>
+                    {{/ifSuccess}}
+                {{/if}}
+            {{/if}}
+            
         </h4>
     </div>
 </div>

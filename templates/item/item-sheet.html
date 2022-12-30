@@ -1,0 +1,52 @@
+<form class="{{cssClass}} item" autocomplete="off">
+  <header class="sheet-header">
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+    <div class="header-fields flexrow">
+      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" ></h1>
+    </div>
+  </header>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+    {{!-- Description Tab --}}
+
+    <section class="sheet-attributes">
+
+      <div class="cell grid-4">
+        <label class="cell--title">
+          {{localize "MAGICALOGIA.Requirement"}}
+        </label>
+        <input type="text" name="system.requirement" value="{{system.requirement}}" data-dtype="String"/>
+      </div>
+
+      <div class="cell grid-4">
+        <label class="cell--title">
+          {{localize "MAGICALOGIA.RequireExp"}}
+        </label>
+        <input type="text" name="system.require_exp" value="{{system.require_exp}}" data-dtype="String"/>
+      </div>
+
+      <div class="cell grid-4">
+        <label class="cell--title">
+          {{localize "MAGICALOGIA.Quantity"}}
+        </label>
+        <input type="text" name="system.quantity" value="{{system.quantity}}" data-dtype="String"/>
+      </div>
+
+      <div class="cell grid-4">
+        <label class="cell--title">
+          {{localize "MAGICALOGIA.Format"}}
+        </label>
+        <input type="text" name="system.format" value="{{system.format}}" data-dtype="String"/>
+      </div>
+
+
+    </section>
+
+    <h2 class="title">
+      {{localize "MAGICALOGIA.Description"}}
+    </h2>
+    {{editor enrichedBiography target="system.description" button=true editable=editable }}
+  </section>
+
+</form>

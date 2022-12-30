@@ -1,0 +1,50 @@
+<form class="{{cssClass}} item" autocomplete="off">
+  <header class="sheet-header">
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+    <div class="header-fields flexrow">
+      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" ></h1>
+    </div>
+  </header>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+    {{!-- Description Tab --}}
+
+    <section class="sheet-attributes">
+
+      <div class="cell grid-4 space-between">
+        <label class="cell--title">
+          {{localize "MAGICALOGIA.DestinyPower"}}
+          <input type="checkbox" class="cell--right" name="system.check" {{#if system.check}} checked {{/if}} />
+        </label>
+      </div>
+
+      <div class="cell grid-6 flexrow">
+        <label class="cell--title">
+          {{localize "MAGICALOGIA.Destiny"}}
+        </label>
+        <input type="text" name="system.destiny" value="{{system.destiny}}" data-dtype="String"/>
+      </div>
+
+      <div class="cell grid-6 flexrow">
+        <label class="cell--title">
+          {{localize "MAGICALOGIA.Attribute"}}
+        </label>
+        <input type="text" name="system.attribute" value="{{system.attribute}}" data-dtype="String"/>
+      </div>
+
+    </section>
+
+    <h2 class="title">
+      {{localize "MAGICALOGIA.Description"}}
+
+      {{#if system.actor}}
+      <div class="checkbox-addon flexrow">
+        <button class="show-actor"><i class="fas fa-id-card"></i></button>
+      </div>
+      {{/if}}
+    </h2>
+    {{editor enrichedBiography target="system.description" button=true editable=editable }}
+  </section>
+
+</form>

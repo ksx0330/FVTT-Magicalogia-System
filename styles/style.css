@@ -1,0 +1,724 @@
+
+.magicalogia {
+  /* Sheet Tabs */
+  /* Items List */
+  /* Attributes */
+}
+
+.magicalogia .sheet-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 100%;
+}
+
+.magicalogia .sheet-wrapper .sheet-attributes {
+  display: grid;
+  grid-column: span 15;
+  grid-template-columns: repeat(15, minmax(0, 1fr));
+  gap: 0px 10px;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+.magicalogia .sheet-wrapper .sheet-attributes .cell--name {
+  grid-column: 6 span;
+}
+
+.magicalogia .sheet-wrapper .sheet-attributes .cell--name .profile-img, .magicalogia .sheet-wrapper .sheet-attributes .cell--name .profile-img img {
+  width: 100%;
+}
+
+.magicalogia .sheet-wrapper .sheet-attributes .cell--name .horizon .title {
+  flex: 0 0 80px;
+}
+
+
+.magicalogia .sheet-wrapper .sheet-attributes .cell--battle {
+  grid-column: 5 span;
+}
+
+.magicalogia .sheet-wrapper .sheet-attributes .cell--battle .attack-circle {
+  width: 100%;
+}
+
+.magicalogia .sheet-wrapper .sheet-attributes .cell--battle .attack-circle .circle {
+  width: 100%;
+  height: 100%;
+  background-image: url(../assets/circle.png);
+  background-size: 220px;
+  background-repeat: no-repeat;
+  background-position: top;
+  z-index: 0;
+  cursor: pointer;
+}
+
+.magicalogia .sheet-wrapper .sheet-attributes .cell--battle .attack-circle .circle:hover {
+  filter: drop-shadow(0px 0px 1px var(--color-shadow-primary));
+}
+
+.magicalogia .sheet-wrapper .sheet-attributes .cell--battle .attack-circle .vertical {
+  position: absolute;
+  z-index: 1;
+}
+
+.magicalogia .sheet-wrapper .sheet-attributes .cell--battle .attack-circle .left {
+  top: 18px;
+  left: 23px;
+  width: 54px;
+}
+
+.magicalogia .sheet-wrapper .sheet-attributes .cell--battle .attack-circle .center {
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: -4px;
+  width: 54px;
+}
+
+.magicalogia .sheet-wrapper .sheet-attributes .cell--battle .attack-circle .right {
+  top: 18px;
+  right: 23px;
+  width: 54px;
+}
+
+.magicalogia .sheet-wrapper .sheet-attributes .cell--battle .attack-circle .progress-box {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.magicalogia .sheet-wrapper .sheet-attributes .cell--battle .attack-circle .progress-box .progress-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4px;
+  border: 1px solid silver;
+}
+
+.magicalogia .sheet-wrapper .sheet-attributes .cell--battle .attack-circle .progress-box .progress-bar .left-button {
+  width: 20px;
+  position: absolute;
+  left: 12px;
+  border: 0;
+  line-height: 16px;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+.magicalogia .sheet-wrapper .sheet-attributes .cell--battle .attack-circle .progress-box .progress-bar .right-button {
+  width: 20px;
+  position: absolute;
+  right: 12px;
+  border: 0;
+  line-height: 16px;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+.magicalogia .sheet-wrapper .sheet-attributes .cell--battle .attack-circle .progress-box .progress-bar .input-box {
+  display: flex;
+  align-items: center;
+  color: white;
+  height: 18px;
+}
+
+.magicalogia .sheet-wrapper .sheet-attributes .cell--battle .attack-circle .progress-box .progress-bar .input-box input {
+  width: 50px;
+  border: 0;
+  background: transparent;
+  text-align: center;
+  color: white;
+}
+
+.magicalogia .sheet-wrapper .sheet-attributes .cell--state {
+  grid-column: 4 span;
+
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 0px 10px;
+}
+
+.magicalogia .sheet-wrapper .sheet-attributes .cell--state .span-8 {
+  grid-column: 8 span;
+}
+
+.magicalogia .sheet-wrapper .sheet-attributes .cell--state .span-4 {
+  grid-column: 4 span;
+}
+
+.magicalogia .sheet-wrapper .sheet-attributes .cell--state .span-2 {
+  grid-column: 2 span;
+}
+
+.magicalogia .sheet-wrapper .sheet-attributes .cell--state .gap {
+  margin: 0 0 10px 0;
+}
+
+
+
+
+.magicalogia .sheet-wrapper .sheet-attributes .horizon {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.magicalogia .sheet-wrapper .sheet-attributes .horizon .title {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin-right: 4px;
+  padding: 4px 0;
+  text-align: center;
+  font-weight: bold;
+  background: black;
+  color: white;
+}
+
+.magicalogia .sheet-wrapper .sheet-attributes .horizon input, .magicalogia .sheet-wrapper .sheet-attributes .horizon select {
+  background: white;
+  height: 30px;
+  width: 100%;
+  text-align: center;
+}
+
+
+.magicalogia .sheet-wrapper .sheet-attributes .vertical {
+  width: 100%;
+
+}
+
+.magicalogia .sheet-wrapper .sheet-attributes .vertical .title {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 4px 0;
+  text-align: center;
+  font-weight: bold;
+  background: black;
+  color: white;
+}
+
+.magicalogia .sheet-wrapper .sheet-attributes .vertical input {
+  background: white;
+  height: 25px;
+  width: 100%;
+  text-align: center;
+}
+
+
+.magicalogia .sheet-wrapper .sheet-attributes .vertical .title i, .magicalogia .sheet-wrapper .sheet-attributes .horizon .title i {
+  position: absolute;
+  right: 7px;
+  top: 5px;
+}
+
+
+.magicalogia .sheet-wrapper .cell {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.magicalogia nav.tabs {
+  border-bottom: 1px solid;
+  border-top: 0;
+  padding: 0;
+}
+
+.magicalogia .tabs .item {
+  border: 1px solid;
+  background: black;
+  color: white;
+  border-radius: 4px 4px 0 0;
+  border-color: black;
+  font-weight: bold;
+  margin: 0 5px -1px;
+  flex: 1;
+}
+
+.magicalogia .tabs .item.active {
+  background: #fff;
+  color: #000;
+  border-bottom: 0;
+  text-shadow: none;
+  font-weight: bold;
+}
+
+.magicalogia .sheet-body {
+  overflow: auto;
+}
+.magicalogia .sheet-body .tab {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.magicalogia .editor, .magicalogia .editor-content {
+  min-height: 350px;
+  resize: none;
+}
+
+
+.magicalogia .talent-table table, th, td {
+  border: 1px solid black;
+}
+
+.magicalogia .talent-table .active {
+  background-color: #454545;
+}
+
+.magicalogia .talent-table .checked {
+    background-color: #e06060;
+    color: white;
+    font-weight: bold;
+}
+
+.magicalogia .talent-table {
+  font-size: 0.75rem;
+}
+
+.magicalogia .talent-table .talent-header {
+  position: relative;
+}
+
+.magicalogia .talent-table .talent-header .header-checkbox {
+  position: absolute;
+  top: 2px;
+  right: 1px;
+  width: 15px;
+  height: 15px;
+}
+
+.magicalogia .talent-table colgroup .talent-num {
+  width: 2%;
+}
+
+.magicalogia .talent-table colgroup .talent-name {
+  width: 15%;
+}
+
+.magicalogia .talent-table colgroup .talent-gap {
+  width: 1%; 
+}
+
+.magicalogia .talent-table .misfortune .talent-name {
+  text-decoration: line-through;
+  font-weight: bold;
+}
+
+.magicalogia .talent-table .subTitle .talent-name {
+  color: blue;
+  font-weight: bold;
+}
+
+.magicalogia .talent-checkbox {
+  width: 15px;
+  height: 15px;
+  float: left;
+}
+
+.magicalogia .talent-name {
+  margin: 3px 0;
+  cursor: pointer;
+}
+
+.magicalogia .talent-name:hover {
+  text-shadow: 0 0 8px var(--color-shadow-primary);
+}
+
+
+.magicalogia .sheet-body .title {
+  background: black;
+  color: #fff;
+  padding: 5px;
+  border-bottom: 0;
+  font-weight: bold;
+  padding-left: 4px;
+  margin-bottom: 4px;
+  font-size: 18px;
+  text-align: center;
+  position: relative;
+}
+
+.magicalogia .sheet-body .title button {
+  position: absolute;
+  width: 32px;
+  top: 2px;
+  right: 2px;
+  background: white;
+  border: 0;
+}
+
+.magicalogia .item-controls {
+  text-align: right;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 40px;
+  flex: 0 0 40px;
+}
+
+.magicalogia .tab .items-list {
+  padding: 0 0 0 0.5em;
+}
+
+.magicalogia .tab .items-list .item {
+  align-items: center;
+}
+
+.magicalogia .item-description {
+  display: none;
+  -webkit-box-flex: 0;
+  -ms-flex: none;
+  flex: none;
+  width: 100%;
+}
+
+.magicalogia .item-name {
+  font-size: 18px;
+  font-weight: bold;
+  -webkit-box-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.magicalogia .item-label:hover::after {
+  width: 100%;
+}
+
+.magicalogia .item-label::after {
+  display: block;
+  content: '';
+  width: 0;
+  height: 0;
+  margin-top: 2px;
+  border-bottom: 2px solid;
+  -webkit-transition: all ease-in-out 0.25s;
+  -o-transition: all ease-in-out 0.25s;
+  transition: all ease-in-out 0.25s;
+}
+
+.magicalogia .echo-item {
+  flex: 0 0 48px;
+}
+
+.magicalogia .item-label {
+  flex: 1;
+  flex-basis: calc(100% - 48px);
+}
+
+.magicalogia .item-addon {
+  text-align: right;
+  font-size: 17px;
+  font-weight: bold;
+  flex: 0 0 165px;
+}
+
+.magicalogia .icon-button {
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  line-height: 0;
+}
+
+.magicalogia .use-button {
+  width: auto;
+  height: 30px;
+  margin: 0;
+  line-height: 0;
+  font-weight: bold;
+}
+
+.magicalogia .item .sheet-header {
+  width: 100%;
+  margin-bottom: 10px;
+  height: 64px;
+}
+
+.magicalogia .item .sheet-header {
+  background: #2d2d2d;
+  color: #fff;
+}
+
+.magicalogia .item .sheet-header input {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border: 0;
+  margin: 0 10px;
+  font-size: 18px;
+  height: 32px;
+  line-height: 32px;
+}
+
+.magicalogia .item .sheet-header .flex-item {
+  flex: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  text-align: right;
+  margin-left: auto;
+  margin-right: 8px;
+  padding: 4px 0px;
+}
+
+.magicalogia  .item .sheet-header .flex-item label {
+  -webkit-box-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.magicalogia .item .sheet-header input {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border: 0;
+  margin: 0 10px;
+  font-size: 18px;
+  height: 32px;
+  line-height: 32px;
+}
+
+.magicalogia .item .sheet-header .flex-item input {
+  color: black;
+  background: white;
+  text-align: center;
+  width: 100px;
+}
+
+.magicalogia .item .sheet-header .header-fields {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.magicalogia .item .sheet-header .header-fields input {
+  color: white;
+  border-bottom: 2px solid #5b7094;
+}
+
+.magicalogia .item .sheet-header .header-fields .charge {
+  flex: 0 0 50px;
+  text-align: center;
+  font-weight: bold;
+  height: 54px;
+}
+
+.magicalogia .item .sheet-header .header-fields .charge label {
+  line-height: 20px;
+}
+
+.magicalogia .item .sheet-header .header-fields .charge input {
+  background: white;
+  border: none;
+  color: black;
+  width: 32px;
+}
+
+
+.magicalogia .sheet-body .sheet-attributes {
+  display: grid;
+  grid-column: span 15;
+  grid-template-columns: repeat(16, minmax(0, 1fr));
+  gap: 0px 10px;
+  margin: 0 0 2px 0;
+  padding: 0;
+}
+
+.magicalogia .sheet-body .sheet-attributes input, .magicalogia .sheet-body .sheet-attributes select {
+  background: white;
+  margin-bottom: 8px;
+  text-align: center;
+  width: 100%;
+}
+
+.magicalogia .sheet-body .sheet-attributes textarea {
+  background: white;
+  font-weight: bold;
+}
+
+.magicalogia .sheet-body .sheet-attributes .grid-4 {
+  grid-column: 4 span;
+}
+
+.magicalogia .sheet-body .sheet-attributes .grid-6 {
+  grid-column: 6 span;
+}
+
+.magicalogia .sheet-body .sheet-attributes .grid-16 {
+  grid-column: 16 span;
+}
+
+.magicalogia .sheet-body .cell .cell--title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-flex: 100%;
+  -ms-flex: 100%;
+  flex: 100%;
+  padding: 5px;
+  margin-bottom: 5px;
+  font-weight: bold;
+
+
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  flex-basis: 100px;
+  background: black;
+  color: #fff;
+  justify-content: center;
+  height: 34px;
+}
+
+.magicalogia .sheet-body .space-between .cell--title {
+  justify-content: space-between;
+}
+
+.magicalogia .sheet-body .cell--title .cell--right {
+  margin: 0;
+  width: 40px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.magicalogia .sheet-body .sheet-attributes .flexrow .cell--title {
+  flex: 0 0 75px;
+}
+
+.magicalogia .sheet-body .sheet-attributes .flexrow input {
+  height: 32px;
+}
+
+.magicalogia .plot-header {
+  height: 35px;
+  font-weight: bold;
+}
+
+.magicalogia .dice-controls {
+  float: right;
+}
+
+.magicalogia .dice-controls button{
+  width: 30px;
+  height:  30px;
+}
+
+.magicalogia .dice-select {
+   filter: invert(20%) sepia(85%) saturate(415%) hue-rotate(94deg) brightness(70%) contrast(100%);
+   width:45px;
+   height:45px;
+}
+
+.magicalogia .ready {
+    background-color: #3ec33e;
+    color: white;
+}
+
+.magicalogia .await {
+    background-color: #ff4b4b;
+    color: white;
+}
+
+.dice-lists {
+  text-align: center;
+}
+
+.dice-lists * {
+  display: inline-block;
+  font-size: 16px;
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+  border: 3px solid #00395a;
+  margin: 1px;
+  background-color: white;
+  border-radius: 15%;
+}
+
+.dice-lists-md * {
+  width: 45px;
+  height: 45px;
+  line-height: 40px;
+}
+
+.dice-lists-sm * {
+  width: 30px;
+  height: 30px;
+  line-height: 25px;
+}
+
+.dice-lists .random {
+  background-color: #ffe2e2;
+}
+
+
+.plot-bar {
+  z-index: 70;
+  position: fixed;
+  bottom: 7px;
+  right: 310px;
+  display: flex;
+  flex-direction: row;
+  flex: 0 0 100px;
+  flex-wrap: wrap;
+}
+
+.plot-bar .item {
+  width: 300px;
+  position: relative;
+}
+
+.plot-bar .remove-bar {
+  position: absolute;
+  width: calc(100% - 12px);
+}
+
+.plot-bar .remove-bar .remove-btn {
+  float: right;
+}
+
+.share-dialog {
+  font-size: 16px;
+}
+
+.share-dialog .user-item {
+  margin-bottom: 4px;
+}

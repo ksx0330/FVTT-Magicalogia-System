@@ -1,0 +1,538 @@
+<form class="{{cssClass}}" autocomplete="off">
+
+  <div class="sheet-wrapper">
+    <button style="display: none;">Input Button Click bypass</button>
+
+    <div class="sheet-attributes">
+
+      <div class="cell cell--name">
+        <div class="profile-img">
+          <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="150" width="200"/>
+        </div>
+        
+        <div class="horizon">
+          <label class="title">{{localize "MAGICALOGIA.TmpName"}}</label>
+          <input name="system.details.tmp_name" type="text" value="{{system.details.tmp_name}}" placeholder="Tmp Name"/>
+        </div>
+
+        <div class="horizon">
+          <label class="title">{{localize "MAGICALOGIA.MagicName"}}</label>
+          <input name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
+        </div>
+
+      </div>
+
+      <div class="cell cell--battle">
+
+        <div class="attack-circle">
+          <div class="circle"></div>
+
+          <div class="vertical left">
+            <label class="title">{{localize "MAGICALOGIA.Attack"}}</label>
+            <input type="text" name="system.details.attack" value="{{system.details.attack}}" data-dtype="Number" />
+          </div>
+  
+          <div class="vertical center">
+            <label class="title">{{localize "MAGICALOGIA.Defence"}}</label>
+            <input type="text" name="system.details.defence" value="{{system.details.defence}}" data-dtype="Number"/>
+          </div>
+          
+          <div class="vertical right">
+            <label class="title">{{localize "MAGICALOGIA.RootForce"}}</label>
+            <input type="text" name="system.details.root_force" value="{{system.details.root_force}}" data-dtype="Number"/>
+          </div>
+
+
+          
+          <div class="progress-box">
+
+            <div class="progress-bar" style="{{manaGauge system.mana.value system.mana.max}}; font-size: 18px;">
+              <button type="button" class="left-button mana-change" data-name="system.mana.value" data-label="{{localize "MAGICALOGIA.Mana"}}" data-add="-1"><i class="fas fa-angle-left"></i></button>
+
+              <div class="input-box">
+                <input type="text" name="system.mana.value" value="{{system.mana.value}}">
+                <span>/</span>
+                <input type="text" name="system.mana.max" value="{{system.mana.max}}">  
+              </div>
+
+              <button type="button" class="right-button mana-change" data-name="system.mana.value" data-label="{{localize "MAGICALOGIA.Mana"}}" data-add="+1"><i class="fas fa-angle-right"></i></button>
+            </div>
+
+            <div class="progress-bar" style="{{manaGauge system.tmp_mana.value 10}}; font-size: 18px;">
+              <button type="button" class="left-button mana-change" data-name="system.tmp_mana.value" data-label="{{localize "MAGICALOGIA.TmpMana"}}" data-add="-1"><i class="fas fa-angle-left"></i></button>
+
+              <div class="input-box">
+                <input type="text" name="system.tmp_mana.value" value="{{system.tmp_mana.value}}">
+              </div>
+
+              <button type="button" class="right-button mana-change" data-name="system.tmp_mana.value" data-label="{{localize "MAGICALOGIA.TmpMana"}}" data-add="+1"><i class="fas fa-angle-right"></i></button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      
+      <div class="cell--state">
+
+        <div class="vertical span-8">
+          <a class="title talent-name" data-title="{{actor.name}}" data-id="-" data-num="0" data-misfortune="false">{{localize "MAGICALOGIA.Roll"}}<i class="fas fa-dice"></i></a>
+        </div>
+
+        <div class="horizon span-8">
+          <span class="title talent-name" data-title="{{system.talent.spirit_talent.name}}" data-num="{{#if system.talent.spirit_talent.misfortune}} 12 {{else}} 6 {{/if}}" {{#if system.talent.spirit_talent.misfortune}} data-misfortune="true" {{/if}} data-id="spirit">{{localize "MAGICALOGIA.SpiritTalent"}}</span>
+          <input {{#if system.talent.spirit_talent.misfortune}} style="text-decoration: line-through;" {{/if}} type="text" class="string-input" name="system.talent.spirit_talent.name" value="{{system.talent.spirit_talent.name}}">
+        </div>
+
+        <div class="horizon span-8 gap">
+          <label class="title">{{localize "MAGICALOGIA.Curiosity"}}</label>
+          <select name="system.talent.curiosity">
+            {{#select system.talent.curiosity}}
+            <option value="0">-</option>
+            <option value="1">{{localize "MAGICALOGIA.A1"}}</option>
+            <option value="2">{{localize "MAGICALOGIA.B1"}}</option>
+            <option value="3">{{localize "MAGICALOGIA.C1"}}</option>
+            <option value="4">{{localize "MAGICALOGIA.D1"}}</option>
+            <option value="5">{{localize "MAGICALOGIA.E1"}}</option>
+            <option value="6">{{localize "MAGICALOGIA.F1"}}</option>
+            {{/select}}
+          </select>
+        </div>
+
+        <div class="vertical span-8">
+          <label class="title">{{localize "MAGICALOGIA.Status"}}</label>
+        </div>
+        
+        <div class="vertical span-2">
+          <a class="title status-btn" data-name="system.status.seal" {{#if system.status.seal}} style="background-color: crimson;" {{/if}}>{{localize "MAGICALOGIA.Seal"}}</a>
+          <input type="hidden" name="system.status.seal" value="{{system.status.seal}}" data-dtype="Boolean">
+        </div>
+        <div class="vertical span-2">
+          <a class="title status-btn" data-name="system.status.burn" {{#if system.status.burn}} style="background-color: crimson;" {{/if}}>{{localize "MAGICALOGIA.Burn"}}</a>
+          <input type="hidden" name="system.status.burn" value="{{system.status.burn}}" data-dtype="Boolean">
+        </div>
+        <div class="vertical span-2">
+          <a class="title status-btn" data-name="system.status.weakness" {{#if system.status.weakness}} style="background-color: crimson;" {{/if}}>{{localize "MAGICALOGIA.Weakness"}}</a>
+          <input type="hidden" name="system.status.weakness" value="{{system.status.weakness}}" data-dtype="Boolean">
+        </div>
+        <div class="vertical span-2">
+          <a class="title status-btn" data-name="system.status.sickness" {{#if system.status.sickness}} style="background-color: crimson;" {{/if}}>{{localize "MAGICALOGIA.Sickness"}}</a>
+          <input type="hidden" name="system.status.sickness" value="{{system.status.sickness}}" data-dtype="Boolean">
+        </div>
+        <div class="vertical span-2">
+          <a class="title status-btn" data-name="system.status.block" {{#if system.status.block}} style="background-color: crimson;" {{/if}}>{{localize "MAGICALOGIA.Block"}}</a>
+          <input type="hidden" name="system.status.block" value="{{system.status.block}}" data-dtype="Boolean">
+        </div>
+        <div class="vertical span-2">
+          <a class="title status-btn" data-name="system.status.misfortune" {{#if system.status.misfortune}} style="background-color: crimson;" {{/if}}>{{localize "MAGICALOGIA.Misfortune"}}</a>
+          <input type="hidden" name="system.status.misfortune" value="{{system.status.misfortune}}" data-dtype="Boolean">
+        </div>
+        <div class="vertical span-2">
+          <a class="title status-btn" data-name="system.status.death" {{#if system.status.death}} style="background-color: crimson;" {{/if}}>{{localize "MAGICALOGIA.Death"}}</a>
+          <input type="hidden" name="system.status.death" value="{{system.status.death}}" data-dtype="Boolean">
+        </div>
+        <div class="vertical span-2 gap">
+          <a class="title status-btn" data-name="system.status.extinction" {{#if system.status.extinction}} style="background-color: crimson;" {{/if}}>{{localize "MAGICALOGIA.Extinction"}}</a>
+          <input type="hidden" name="system.status.extinction" value="{{system.status.extinction}}" data-dtype="Boolean">
+        </div>
+
+      </div>
+
+    </div>
+
+    {{!-- Sheet Tab Navigation --}}
+    <nav class="sheet-tabs tabs" data-group="primary">
+      <a class="item" data-tab="skill">{{localize "MAGICALOGIA.Skill"}}</a>
+      <a class="item" data-tab="description">{{localize "MAGICALOGIA.Description"}}</a>
+      <a class="item" data-tab="ability">{{localize "MAGICALOGIA.Ability"}}</a>
+      <a class="item" data-tab="bonds">{{localize "MAGICALOGIA.Bonds"}}</a>
+      <a class="item" data-tab="items">{{localize "MAGICALOGIA.Items"}}</a>
+      <a class="item" data-tab="secret">{{localize "MAGICALOGIA.Secret"}}</a> 
+    </nav>
+
+    {{!-- Sheet Body --}}
+    <section class="sheet-body">
+
+      {{!-- Talent Tab --}}
+      <div class="tab skill" data-group="primary" data-tab="skill">
+        <h2 class="title">{{localize "MAGICALOGIA.Skill"}}</h2>
+        <div class="talent-table">
+          <table class="{{lang}}">
+            <colgroup>
+                <col span="1" class="talent-num">
+                <col span="1" class="talent-gap">
+                <col span="1" class="talent-name">
+                <col span="1" class="talent-gap">
+                <col span="1" class="talent-name">
+                <col span="1" class="talent-gap">
+                <col span="1" class="talent-name">
+                <col span="1" class="talent-gap">
+                <col span="1" class="talent-name">
+                <col span="1" class="talent-gap">
+                <col span="1" class="talent-name">
+                <col span="1" class="talent-gap">
+                <col span="1" class="talent-name">
+                <col span="1" class="talent-num">
+            </colgroup>
+
+            <tbody>
+                <tr>
+                    <th></th>
+                    <td class="gap"><input class="talent-checkbox" type="checkbox" name="system.talent.gap.0"  {{#if system.talent.gap.[0]}} checked {{/if}}></td>
+                    <th class="talent-header">
+                      <div class="header-name">{{localTalent "MAGICALOGIA.A1"}}</div>
+                    </th>
+
+                    <td class="gap"><input class="talent-checkbox" type="checkbox" name="system.talent.gap.1"   {{#if system.talent.gap.[1]}} checked {{/if}}></td>
+                    <th class="talent-header">
+                      <div class="header-name">{{localTalent "MAGICALOGIA.B1"}}</div>
+                    </th>
+
+                    <td class="gap"><input class="talent-checkbox" type="checkbox" name="system.talent.gap.2"  {{#if system.talent.gap.[2]}} checked {{/if}}></td>
+                    <th class="talent-header">
+                      <div class="header-name">{{localTalent "MAGICALOGIA.C1"}}</div>
+                    </th>
+
+                    <td class="gap"><input class="talent-checkbox" type="checkbox" name="system.talent.gap.3"  {{#if system.talent.gap.[3]}} checked {{/if}}></td>
+                    <th class="talent-header">
+                      <div class="header-name">{{localTalent "MAGICALOGIA.D1"}}</div>
+                    </th>
+
+                    <td class="gap"><input class="talent-checkbox" type="checkbox" name="system.talent.gap.4" {{#if system.talent.gap.[4]}} checked {{/if}}></td>
+                    <th class="talent-header">
+                      <div class="header-name">{{localTalent "MAGICALOGIA.E1"}}</div>
+                    </th>
+
+                    <td class="gap"><input class="talent-checkbox" type="checkbox" name="system.talent.gap.5" {{#if system.talent.gap.[5]}} checked {{/if}}></td>
+                    <th class="talent-header">
+                      <div class="header-name">{{localTalent "MAGICALOGIA.F1"}}</div>
+                    </th>
+
+                    <th></th>
+                </tr>
+                {{#each system.tables}}  
+                <tr>
+                    <th>{{number}}</th>
+                    <td {{#if ../system.talent.gap.[0]}} class="active" {{/if}}></td>
+                    <td class="{{#if line.[0].state}} checked {{/if}} {{#if line.[0].misfortune}} misfortune {{/if}} {{#if line.[0].subTitle}} subTitle {{/if}}" >
+                        <input class="talent-checkbox" type="checkbox" name="{{line.[0].name}}.state" {{#if line.[0].state}} checked {{/if}} >
+                        <input type="hidden" name="{{line.[0].name}}.num" value="{{line.[0].num}}">
+                        <input type="hidden" name="{{line.[0].name}}.misfortune" value="{{line.[0].misfortune}}" data-dtype="Boolean">
+                        <div class="talent-name" data-title="{{localTalent line.[0].title}}" data-num="{{line.[0].num}}" data-id="{{line.[0].id}}" data-misfortune="{{line.[0].misfortune}}">{{localTalent line.[0].title}} / {{line.[0].num}}</div>
+                    </td>
+
+                    <td {{#if ../system.talent.gap.[1]}} class="active" {{/if}}></td>
+                    <td  class="{{#if line.[1].state}} checked {{/if}} {{#if line.[1].misfortune}} misfortune {{/if}} {{#if line.[1].subTitle}} subTitle {{/if}}" >
+                        <input class="talent-checkbox" type="checkbox" name="{{line.[1].name}}.state" {{#if line.[1].state}} checked {{/if}} >
+                        <input type="hidden" name="{{line.[1].name}}.num" value="{{line.[1].num}}">
+                        <input type="hidden" name="{{line.[1].name}}.misfortune" value="{{line.[1].misfortune}}" data-dtype="Boolean">
+                        <div class="talent-name" data-title="{{localTalent line.[1].title}}" data-num="{{line.[1].num}}" data-id="{{line.[1].id}}" data-misfortune="{{line.[1].misfortune}}">{{localTalent line.[1].title}} / {{line.[1].num}}</div>
+                    </td>
+
+                    <td {{#if ../system.talent.gap.[2]}} class="active" {{/if}}></td>
+
+                    <td class="{{#if line.[2].state}} checked {{/if}} {{#if line.[2].misfortune}} misfortune {{/if}} {{#if line.[2].subTitle}} subTitle {{/if}}" >
+                        <input class="talent-checkbox" type="checkbox" name="{{line.[2].name}}.state" {{#if line.[2].state}} checked {{/if}} >
+                        <input type="hidden" name="{{line.[2].name}}.num" value="{{line.[2].num}}">
+                        <input type="hidden" name="{{line.[2].name}}.misfortune" value="{{line.[2].misfortune}}" data-dtype="Boolean">
+                        <div class="talent-name" data-title="{{localTalent line.[2].title}}" data-num="{{line.[2].num}}" data-id="{{line.[2].id}}" data-misfortune="{{line.[2].misfortune}}">{{localTalent line.[2].title}} / {{line.[2].num}}</div>
+                    </td>
+
+                    <td {{#if ../system.talent.gap.[3]}} class="active" {{/if}}></td>
+
+                    <td class="{{#if line.[3].state}} checked {{/if}} {{#if line.[3].misfortune}} misfortune {{/if}} {{#if line.[3].subTitle}} subTitle {{/if}}" >
+                        <input class="talent-checkbox" type="checkbox" name="{{line.[3].name}}.state" {{#if line.[3].state}} checked {{/if}} >
+                        <input type="hidden" name="{{line.[3].name}}.num" value="{{line.[3].num}}">
+                        <input type="hidden" name="{{line.[3].name}}.misfortune" value="{{line.[3].misfortune}}" data-dtype="Boolean">
+                        <div class="talent-name" data-title="{{localTalent line.[3].title}}" data-num="{{line.[3].num}}" data-id="{{line.[3].id}}" data-misfortune="{{line.[3].misfortune}}">{{localTalent line.[3].title}} / {{line.[3].num}}</div>
+                    </td>
+
+                    <td {{#if ../system.talent.gap.[4]}} class="active" {{/if}}></td>
+
+                    <td class="{{#if line.[4].state}} checked {{/if}} {{#if line.[4].misfortune}} misfortune {{/if}} {{#if line.[4].subTitle}} subTitle {{/if}}" >
+                        <input class="talent-checkbox" type="checkbox" name="{{line.[4].name}}.state" {{#if line.[4].state}} checked {{/if}} >
+                        <input type="hidden" name="{{line.[4].name}}.num" value="{{line.[4].num}}">
+                        <input type="hidden" name="{{line.[4].name}}.misfortune" value="{{line.[4].misfortune}}" data-dtype="Boolean">
+                        <div class="talent-name" data-title="{{localTalent line.[4].title}}" data-num="{{line.[4].num}}" data-id="{{line.[4].id}}" data-misfortune="{{line.[4].misfortune}}">{{localTalent line.[4].title}} / {{line.[4].num}}</div>
+                    </td>
+
+                    <td {{#if ../system.talent.gap.[5]}} class="active" {{/if}}></td>
+
+                    <td class="{{#if line.[5].state}} checked {{/if}} {{#if line.[5].misfortune}} misfortune {{/if}} {{#if line.[5].subTitle}} subTitle {{/if}}" >
+                        <input class="talent-checkbox" type="checkbox" name="{{line.[5].name}}.state" {{#if line.[5].state}} checked {{/if}} >
+                        <input type="hidden" name="{{line.[5].name}}.num" value="{{line.[5].num}}">
+                        <input type="hidden" name="{{line.[5].name}}.misfortune" value="{{line.[5].misfortune}}" data-dtype="Boolean">
+                        <div class="talent-name" data-title="{{localTalent line.[5].title}}" data-num="{{line.[5].num}}" data-id="{{line.[5].id}}" data-misfortune="{{line.[5].misfortune}}">{{localTalent line.[5].title}} / {{line.[5].num}}</div>
+                    </td>
+                    <th>{{number}}</th>
+                </tr>
+                {{/each}}
+            </tbody>
+          </table>
+
+          <input type="hidden" name="system.talent.subTitle.id" value="{{system.talent.subTitle.id}}">
+          <input type="hidden" name="system.talent.subTitle.title" value="{{system.talent.subTitle.title}}">
+          <input type="hidden" name="system.talent.subTitle.state" value="{{system.talent.subTitle.state}}" data-dtype="Boolean">
+
+        </div>
+      </div>
+
+      {{!-- Biography Tab --}}
+      <div class="tab biography" data-group="primary" data-tab="description">
+        <h2 class="title">{{localize "MAGICALOGIA.Basic"}}</h2>
+        <table>
+            <tr>
+                <th>{{localize "MAGICALOGIA.Gender"}}</th>
+                <td colspan="2"><input type="text" name="system.details.sex" value="{{system.details.sex}}"></td>
+                <th>{{localize "MAGICALOGIA.Age"}}</th>
+                <td colspan="2"><input type="text" name="system.details.age" value="{{system.details.age}}"></td>
+            </tr>
+            <tr>
+                <th>{{localize "MAGICALOGIA.Grade"}}</th>
+                <td colspan="5"><input type="text" name="system.details.grade" value="{{system.details.grade}}"></td>
+            </tr>
+            <tr>
+                <th>{{localize "MAGICALOGIA.Career"}}</th>
+                <td colspan="2"><input type="text" name="system.details.career" value="{{system.details.career}}"></td>
+                <th>{{localize "MAGICALOGIA.Agency"}}</th>
+                <td colspan="2"><input type="text" name="system.details.agency" value="{{system.details.agency}}"></td>
+            </tr>
+            <tr>
+                <th>{{localize "MAGICALOGIA.Identify"}}</th>
+                <td colspan="5"><input type="text" name="system.details.identify" value="{{system.details.identify}}"></td>
+            </tr>
+            <tr>
+                <th>{{localize "MAGICALOGIA.Exp"}}</th>
+                <td colspan="2"><input type="text" name="system.details.exp" value="{{system.details.exp}}"></td>
+                <th>{{localize "MAGICALOGIA.ExpAbstruct"}}</th>
+                <td colspan="2"><input type="text" name="system.details.exp_abstruct" value="{{system.details.exp_abstruct}}"></td>
+            </tr>
+        </table>
+        <br>
+        <table>
+            <colgroup>
+                <col span="1" style="width: 15%;">
+                <col span="1" style="width: 2%;">
+                <col span="1" style="width: 30%;">
+                <col span="1" style="width: 10%;">
+                <col span="1" style="width: 23%;">
+            </colgroup>
+
+            <tbody>
+                <tr>
+                    <th>{{localize "MAGICALOGIA.TrueLook"}}</th>
+                    <td>
+                        <input class="talent-checkbox" type="checkbox" name="system.true_look.check" {{#if system.true_look.check}} checked {{/if}} >
+                    </td>
+                    <td>
+                        <input type="text" name="system.true_look.name" value="{{system.true_look.name}}">
+                    </td>
+                    <th>{{localize "MAGICALOGIA.Effect"}}</th>
+                    <td><input type="text" name="system.true_look.effect" value="{{system.true_look.effect}}"></td>
+                </tr>
+                <tr>
+                    <th>{{localize "MAGICALOGIA.Duty"}}</th>
+                    <td colspan="4">
+                        <textarea name="system.duty">{{system.duty}}</textarea>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+
+        <h2>{{localize "MAGICALOGIA.Memo"}}</h2>
+        {{editor enrichedBiography target="system.details.biography" button=true editable=editable }}
+      </div>
+
+
+      {{!-- Owned Ability Tab --}}
+      <div class="tab items" data-group="primary" data-tab="ability">
+        <h2 class="title">
+          {{localize "MAGICALOGIA.AbilityList"}}
+
+          <button type="button" class="item-control item-create" data-type="ability" data-img="book">
+            <i class="fas fa-plus"></i>
+          </button>
+        </h2>
+
+        <ol class="items-list">
+        {{#each actor.abilityList as |item id|}}
+
+          <li class="item flexrow" data-item-id="{{item.id}}" draggable="true">
+            
+            <h4 class="item-name">
+                <span class="echo-item" style="float:left;">
+                    <img src="{{item.img}}" title="{{item.name}}" width="37" height="37" style="vertical-align : middle;margin-right:10px;">
+                </span> 
+                <span class="item-label">{{item.name}}<br>
+                <span style="color : gray; font-size : smaller;">
+                  <b>{{localize "MAGICALOGIA.Type"}}</b> : {{item.system.type}} |
+                  <b>{{localize "MAGICALOGIA.Talent"}}</b> : {{item.system.talent}} |
+                  <b>{{localize "MAGICALOGIA.Target"}}</b> : {{item.system.target}} |
+                  <b>{{localize "MAGICALOGIA.Cost"}}</b> : {{item.system.cost}}
+                    
+                <span class="item-details-toggle"><i class="fas fa-chevron-down"></i></span>
+                </span></span>
+            </h4>
+
+            <h4 class="item-addon">
+              <span class="text-block">{{localize "MAGICALOGIA.Charge"}}</span>
+              <button type="button" class="icon-button charge-change" data-add="-1">-</button>
+              <span>{{item.system.charge}}</span>
+              <button type="button" class="icon-button charge-change" data-add="1">+</button>
+              <button type="button" class="use-button use-word">{{localize "MAGICALOGIA.Word"}}</button>
+            </h4>
+            
+            <div class="item-controls">
+              <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+              <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+            </div>
+            <div class="item-description">
+              {{{item.system.description}}}
+            </div>
+          </li>
+
+        {{/each}}
+        </ol>
+      </div>
+
+
+      {{!-- Owned Bonds Tab --}}
+      <div class="tab items" data-group="primary" data-tab="bonds">
+        <h2 class="title">
+          {{localize "MAGICALOGIA.BondsList"}}
+
+          <button type="button" class="item-control item-create" data-type="bond" data-img="mystery-man">
+            <i class="fas fa-plus"></i>
+          </button>
+        </h2>
+
+
+        <ol class="items-list">
+        {{#each actor.bondList as |item id|}}
+          <li class="item flexrow" data-item-id="{{item.id}}" draggable="true">
+            
+            <h4 class="item-name">
+              <span class="echo-item" style="float:left;">
+                  <img src="{{item.img}}" title="{{item.name}}" width="37" height="37" style="vertical-align : middle;margin-right:10px;">
+              </span> 
+              <span class="item-label">{{item.name}}<br>
+              <span style="color : gray; font-size : smaller;">
+                <b>{{localize "MAGICALOGIA.Destiny"}}</b> : {{item.system.destiny}} | 
+                <b>{{localize "MAGICALOGIA.Attribute"}}</b> : {{item.system.attribute}}
+                    
+            </h4>
+            
+            <h4 class="item-addon">
+              <button type="button" class="use-button use-power">{{localize "MAGICALOGIA.DestinyPower"}}</button>
+            </h4>
+
+            <div class="item-controls">
+              <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+              <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+            </div>
+            <div class="item-description">
+              {{{item.system.description}}}
+            </div>
+          </li>
+        {{/each}}
+        </ol>
+      </div>
+
+
+      {{!-- Owned Item Tab --}}
+      <div class="tab items" data-group="primary" data-tab="items">
+        <h2 class="title">
+          {{localize "MAGICALOGIA.ItemsList"}}
+
+          <button type="button" class="item-control item-create" data-type="item" data-img="item-bag">
+            <i class="fas fa-plus"></i>
+          </button>
+        </h2>
+
+
+        <ol class="items-list">
+        {{#each actor.itemList as |item id|}}
+          <li class="item flexrow" data-item-id="{{item.id}}" draggable="true">
+            
+            <h4 class="item-name">
+              <span class="echo-item" style="float:left;">
+                  <img src="{{item.img}}" title="{{item.name}}" width="37" height="37" style="vertical-align : middle;margin-right:10px;">
+              </span> 
+              <span class="item-label">{{item.name}}
+            </h4>
+
+            <div class="item-controls">
+              <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+              <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+            </div>
+            <div class="item-description">
+              {{{item.system.description}}}
+            </div>
+          </li>
+        {{/each}}
+        </ol>
+      </div>
+
+
+      {{!-- Owned Secret Tab --}}
+      <div class="tab items" data-group="primary" data-tab="secret">
+
+        <h2 class="title">
+          {{localize "MAGICALOGIA.Handout"}}
+
+          <button type="button" class="item-control item-create" data-type="handout" data-img="card-hand">
+            <i class="fas fa-plus"></i>
+          </button>
+        </h2>
+
+        <ol class="items-list">
+        {{#each actor.handoutList as |item id|}}
+
+        {{#ifOR ../isGM (checkVisible item.system.visible ../userId)}} 
+          <li class="item flexrow" data-item-id="{{item.id}}" draggable="true">
+
+            <h4 class="item-name">
+                <span class="echo-item">
+                    <img src="{{item.img}}" title="{{item.name}}" width="37" height="37" style="vertical-align : middle;margin-right:10px;">
+                </span> 
+                <span class="item-label">{{item.name}}<span class="item-details-toggle"><i class="fas fa-chevron-down"></i></span>
+                </span></span>
+            </h4>
+
+            <div class="item-controls">
+              <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+              <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+            </div>
+            <div class="item-description" style="box-shadow: 4px 5px 12px; width: 98%; margin-top: 2px;">
+              {{{item.system.description}}}
+              {{#ifOR ../isGM (checkVisible item.system.sVisible ../userId)}} 
+              <hr style="margin: 8px 0;">
+              {{{item.system.secret}}}
+              {{/ifOR}}
+            </div>
+          </li>
+        {{/ifOR}}
+          
+        {{/each}}
+        </ol>
+
+      </div>
+
+
+
+
+
+
+
+
+
+      
+    </section>
+
+  </div>
+</form>
+
+

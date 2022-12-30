@@ -86,11 +86,10 @@
             {"misfortune": false, "state": false, "num": 12}] 
 
         ],
+        "gap": {"0": false, "1": false, "2": false, "3": false, "4": false, "5": false},
         "curiosity": 0,
-        "spirit_talent": {
-            "name": "",
-            "misfortune": false
-        }
+        "spirit_talent": { "name": "", "misfortune": false },
+        "subTitle": {"id": "", "title": "", "state": false}
     },
     "true_look": {
         "check": false,
@@ -113,9 +112,9 @@
         "age": "",
         "sex": "",
         "grade": "",
-        "attack": "",
-        "defence": "",
-        "root_force": "",
+        "attack": 3,
+        "defence": 3,
+        "root_force": 3,
         "career": "",
         "agency": "",
         "identify": "",
@@ -126,12 +125,13 @@
   }
 },
 "Item": {
-    "types": ["bond", "ability", "item"],
+    "types": ["bond", "ability", "item", "handout"],
     "bond": {
         "check": false,
-        "destiny": "",
+        "destiny": "1",
         "attribute": "",
-        "description": ""
+        "description": "",
+        "actor": null
     },
     "ability": {
         "check": false,
@@ -152,6 +152,12 @@
         "require_exp":  1,
         "quantity": 1,
         "format": ""
+    },
+    "handout": {
+        "visible": {},
+        "sVisible": {},
+        "description": "",
+        "secret": ""
     }
 }
 }

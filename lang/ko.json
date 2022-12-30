@@ -2,6 +2,7 @@
     "MAGICALOGIA.Mana": "마력",
     "MAGICALOGIA.TmpMana": "일시적 마력",
     "MAGICALOGIA.TmpName": "임시 이름",
+    "MAGICALOGIA.MagicName": "마법명",
     "MAGICALOGIA.Grade": "계제",
     "MAGICALOGIA.Curiosity": "영역",
     "MAGICALOGIA.SpiritTalent": "혼의 특기",
@@ -33,7 +34,7 @@
     "MAGICALOGIA.Death": "사망",
     "MAGICALOGIA.Extinction": "소멸",
     "MAGICALOGIA.Memo": "메모",
-    "MAGICALOGIA.AbilityList": "장서",
+    "MAGICALOGIA.AbilityList": "장서 목록",
     "MAGICALOGIA.Class": "분류",
     "MAGICALOGIA.ManaMark": "마소 마크",
     "MAGICALOGIA.Type": "타입",
@@ -45,8 +46,8 @@
     "MAGICALOGIA.Charge": "충전",
     "MAGICALOGIA.Word": "주구",
     "MAGICALOGIA.Talent": "지정특기",
-    "MAGICALOGIA.BondsList": "관계 리스트",
-    "MAGICALOGIA.ItemsList": "아이템 리스트",
+    "MAGICALOGIA.BondsList": "인물 목록",
+    "MAGICALOGIA.ItemsList": "아이템 목록",
     "MAGICALOGIA.Requirement": "사용 자격",
     "MAGICALOGIA.RequireExp": "필요 공적점",
     "MAGICALOGIA.Quantity": "개수",
@@ -125,6 +126,42 @@
     "MAGICALOGIA.F9": "바보",
     "MAGICALOGIA.F10": "악의",
     "MAGICALOGIA.F11": "절망",
-    "MAGICALOGIA.F12": "죽음"
+    "MAGICALOGIA.F12": "죽음",
+
+    "MAGICALOGIA.Roll": "판정",
+    "MAGICALOGIA.Special": "스페셜!",
+    "MAGICALOGIA.Fumble": "펌블!",
+    "MAGICALOGIA.Success": "성공",
+    "MAGICALOGIA.Fail": "실패",
+    "MAGICALOGIA.Skill": "특기",
+    "MAGICALOGIA.Secret": "비밀",
+    "MAGICALOGIA.Handout": "핸드아웃",
+    "MAGICALOGIA.Visible": "공개",
+    "MAGICALOGIA.Hidden": "비공개",
+
+    "MAGICALOGIA.Attacker": "공격",
+    "MAGICALOGIA.Defenser": "방어",
+    "MAGICALOGIA.Observer": "입회인",
+    
+    "MAGICALOGIA.StartMagicBattle": "마법전 개시",
+    "MAGICALOGIA.StopMagicBattle": "마법전 종료",
+
+    "MAGICALOGIA.SelectTarget": "공격 대상을 선택해주세요.",
+    "MAGICALOGIA.SelectZomeTarget": "마법전 대상을 둘 선택해주세요.",
+    "MAGICALOGIA.SelectObserver": "대상의 입회인을 선택해주세요.",
+
+    "MAGICALOGIA.SelectBattle": "열려 있는 마법전을 선택해주세요.",
+    "MAGICALOGIA.NotStopBattle": "열려 있는 마법전이 없습니다.",
+
+    
+    "MAGICALOGIA.SelectActor": "액터를 선택해주세요",
+    "MAGICALOGIA.ReadyPlot": "플롯이 준비되었습니다",
+    "MAGICALOGIA.AwaitPlot": "플롯 준비가 해제되었습니다.",
+
+    
+    "SETTINGS.TalentTable": "특기 리스트",
+    "SETTINGS.TalentTableDesc": "특기 리스트 변경",
+    "SETTINGS.RollAddon": "수정치 추가",
+    "SETTINGS.RollAddonDesc": "롤을 할 때 Ctrl을 누르지 않아도 항상 추가 수정치를 입력할 수 있는 다이얼로그가 나옵니다."
 
 }
