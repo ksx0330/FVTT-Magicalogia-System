@@ -13,18 +13,11 @@ https://raw.githubusercontent.com/ksx0330/FVTT-Magicalogia-System/main/system.js
 
 Picture
 ------------
-![image](https://user-images.githubusercontent.com/15700174/97938046-b6f0e180-1dc3-11eb-8cee-399fee53efde.png)
 
-![image](https://user-images.githubusercontent.com/15700174/97938004-9fb1f400-1dc3-11eb-8e72-cfcdaa798868.png)
+![image](https://user-images.githubusercontent.com/15700174/210094674-83262573-ac01-41ea-a6a9-0e292a70f6aa.png)
 
-![image](https://user-images.githubusercontent.com/15700174/97938094-dbe55480-1dc3-11eb-8866-48ce12a2ef7a.png)
+![image](https://user-images.githubusercontent.com/15700174/210094801-a26a7ed0-d656-47b7-811d-49aeb4af5dcc.png)
 
-![image](https://user-images.githubusercontent.com/15700174/97938131-f3bcd880-1dc3-11eb-92c4-04c5a6f384d3.png)
+![image](https://user-images.githubusercontent.com/15700174/210094977-e367577d-b5d3-47df-8e9e-5bc2df601c46.png)
 
-![image](https://user-images.githubusercontent.com/15700174/97938156-033c2180-1dc4-11eb-89f6-60a6251b9ec7.png)
-
-![image](https://user-images.githubusercontent.com/15700174/97938169-0f27e380-1dc4-11eb-9085-4f7520c2655a.png)
-
-![image](https://user-images.githubusercontent.com/15700174/97938180-1b13a580-1dc4-11eb-8e27-2ea4a7b5b293.png)
-
-![image](https://user-images.githubusercontent.com/15700174/97938234-3f6f8200-1dc4-11eb-97a5-f51907ced8ed.png)
+![image](https://user-images.githubusercontent.com/15700174/210094846-9c317a7d-0d3b-4393-a697-3fc8d0e98470.png)
