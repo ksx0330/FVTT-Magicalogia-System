@@ -93,8 +93,10 @@
     },
     "true_look": {
         "check": false,
+        "img": "icons/svg/mystery-man.svg",
         "name": "",
-        "effect": ""
+        "effect": "",
+        "biography": ""
     },
     "duty": "",
     "status": {
@@ -108,7 +110,7 @@
         "extinction": false
     },
     "details": {
-        "tmp_name": "",
+        "magic_name": "",
         "age": "",
         "sex": "",
         "grade": "",

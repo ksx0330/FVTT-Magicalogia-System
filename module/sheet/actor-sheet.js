@@ -87,6 +87,8 @@ export class MagicalogiaActorSheet extends ActorSheet {
     }
 
     data.enrichedBiography = await TextEditor.enrichHTML(data.system.details.biography, {async: true});
+    data.enrichedTrueLook = await TextEditor.enrichHTML(data.system.true_look.biography, {async: true});
+
     console.log(this);
 
     return data;
@@ -128,6 +130,7 @@ export class MagicalogiaActorSheet extends ActorSheet {
     html.find('.circle').click(this._attackPlot.bind(this));
 
     html.find('.status-btn').click(this._changeStatus.bind(this));
+    html.find('.truelook-change').click(this._changeTrueLook.bind(this));
     html.find('.mana-change').click(this._changeManaGauge.bind(this));
     html.find('.charge-change').click(this._changeItemCharge.bind(this));
     html.find('.use-word').click(this._useItemWord.bind(this));
@@ -296,6 +299,47 @@ export class MagicalogiaActorSheet extends ActorSheet {
     const state = this.actor.system.status[splitName[2]];
 
     await this.actor.update({[name]: !state});
+  }
+
+  async _changeTrueLook(event) {
+    const state = this.actor.system.true_look.check;
+    await this.actor.update({"system.true_look.check": !state});
+
+    if (!state) {
+      let title = `<img src="${this.actor.system.true_look.img}" width="28" height="28">&nbsp&nbsp<b>${this.actor.name}</b>`;
+      let description = `
+        <table style="text-align: center;">
+          <tr>
+            <th>${game.i18n.localize("Name")}</th>
+            <th>${game.i18n.localize("MAGICALOGIA.Effect")}</th>
+          </tr>
+
+          <tr>
+            <td>${this.actor.system.true_look.name}</td>
+            <td>${this.actor.system.true_look.effect}</td>
+          </tr>
+        </table>${this.actor.system.true_look.biography}`;
+
+      let chatData = {
+        user: game.user.id,
+        speaker: ChatMessage.getSpeaker({ actor: this }),
+        content: `<div class="" data-actor-id=${this.id}>` + `<h2 style='display: flex; padding-bottom: 2px;'>` + title + "</h2>" + description + `</div>`
+      };
+  
+      ChatMessage.create(chatData);
+    }
+
+    for (let token of game.scenes.current.tokens) {
+      console.log(token);
+
+      if (token.actor != null && token.actor.id == this.actor.id ) {
+        if (!state)
+          token.update({"name": this.actor.system.true_look.name, "img": this.actor.system.true_look.img});
+        else
+          token.update({"name": this.actor.name, "img": this.actor.img});
+      }
+    }
+
   }
 
   async _changeManaGauge(event) {

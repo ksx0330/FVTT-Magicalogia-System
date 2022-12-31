@@ -141,12 +141,6 @@ export class MagicalogiaActor extends Actor {
     let roll = new Roll(formula);
     await roll.roll({async: true});
     let d = roll.terms[0].total;
-    
-
-    let manaList = ["A1", "B1", "C1", "D1", "E1", "F1"];
-
-    let isDoublet = roll.terms[0].results[0].result == roll.terms[0].results[1].result;
-    let mana = `MAGICALOGIA.${manaList[roll.terms[0].results[0].result - 1]}`
 
     chatData.content = await renderTemplate("systems/magicalogia/templates/roll.html", {
         formula: roll.formula,
@@ -156,9 +150,7 @@ export class MagicalogiaActor extends Actor {
         total: Math.round(roll.total * 100) / 100,
         special: d == 12,
         fumble: d == 2,
-        num: num,
-        doublet: isDoublet,
-        mana: mana
+        num: num
     });
 
     if (game.dice3d) {

@@ -21,6 +21,8 @@ import { ActorItemToken } from "./document/token.js";
 Hooks.once("init", async function() {
     console.log(`Initializing Simple Magicalogia System`);
 
+    Roll.TOOLTIP_TEMPLATE = "systems/magicalogia/templates/tooltip.html";
+
     CONFIG.Actor.documentClass = MagicalogiaActor;
     CONFIG.Token.objectClass = ActorItemToken;
 

@@ -61,6 +61,26 @@ export class MagicalogiaSettings {
 			let percent = (max != 0) ? now / max * 100 : 0;
 			return `background: linear-gradient(90deg, #569ccb ${percent}%, #5d5d5d 0%);`;
 		});
+
+		Handlebars.registerHelper('doublet', function(arg1, options) {
+			let part = arg1[0];
+			console.log(part);
+
+			let manaList = ["A1", "B1", "C1", "D1", "E1", "F1"];
+			let isDoublet = part.rolls[0].result == part.rolls[1].result;
+			let mana = `MAGICALOGIA.${manaList[part.rolls[0].result - 1]}`
+
+			if (!isDoublet)
+				return "";
+			else
+				return `
+				<h4 class="dice-total" style="color: #4131c7; margin-bottom: 4px">
+					<span>Doublet! - ${game.i18n.localize(mana)}</span>
+				</h4>
+				`
+		});
+
+
 	}
 	
 

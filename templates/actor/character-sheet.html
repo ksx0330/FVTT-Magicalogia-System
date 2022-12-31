@@ -12,12 +12,12 @@
         
         <div class="horizon">
           <label class="title">{{localize "MAGICALOGIA.TmpName"}}</label>
-          <input name="system.details.tmp_name" type="text" value="{{system.details.tmp_name}}" placeholder="Tmp Name"/>
+          <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize "MAGICALOGIA.TmpName"}}"/>
         </div>
 
         <div class="horizon">
           <label class="title">{{localize "MAGICALOGIA.MagicName"}}</label>
-          <input name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
+          <input name="system.details.magic_name" type="text" value="{{system.details.magic_name}}" placeholder="{{localize "MAGICALOGIA.MagicName"}}"/>
         </div>
 
       </div>
@@ -78,7 +78,8 @@
       <div class="cell--state">
 
         <div class="vertical span-8">
-          <a class="title talent-name" data-title="{{actor.name}}" data-id="-" data-num="0" data-misfortune="false">{{localize "MAGICALOGIA.Roll"}}<i class="fas fa-dice"></i></a>
+          <a class="title truelook-change" {{#if system.true_look.check}} style="background-color: crimson;" {{/if}}>{{localize "MAGICALOGIA.TrueLook"}}</a>
+          <input type="hidden" name="system.true_look.check" value="{{system.true_look.check}}" data-dtype="Boolean">
         </div>
 
         <div class="horizon span-8">
@@ -137,6 +138,7 @@
           <a class="title status-btn" data-name="system.status.extinction" {{#if system.status.extinction}} style="background-color: crimson;" {{/if}}>{{localize "MAGICALOGIA.Extinction"}}</a>
           <input type="hidden" name="system.status.extinction" value="{{system.status.extinction}}" data-dtype="Boolean">
         </div>
+
 
       </div>
 
@@ -309,40 +311,41 @@
                 <th>{{localize "MAGICALOGIA.ExpAbstruct"}}</th>
                 <td colspan="2"><input type="text" name="system.details.exp_abstruct" value="{{system.details.exp_abstruct}}"></td>
             </tr>
-        </table>
-        <br>
-        <table>
-            <colgroup>
-                <col span="1" style="width: 15%;">
-                <col span="1" style="width: 2%;">
-                <col span="1" style="width: 30%;">
-                <col span="1" style="width: 10%;">
-                <col span="1" style="width: 23%;">
-            </colgroup>
-
-            <tbody>
-                <tr>
-                    <th>{{localize "MAGICALOGIA.TrueLook"}}</th>
-                    <td>
-                        <input class="talent-checkbox" type="checkbox" name="system.true_look.check" {{#if system.true_look.check}} checked {{/if}} >
-                    </td>
-                    <td>
-                        <input type="text" name="system.true_look.name" value="{{system.true_look.name}}">
-                    </td>
-                    <th>{{localize "MAGICALOGIA.Effect"}}</th>
-                    <td><input type="text" name="system.true_look.effect" value="{{system.true_look.effect}}"></td>
-                </tr>
-                <tr>
-                    <th>{{localize "MAGICALOGIA.Duty"}}</th>
-                    <td colspan="4">
-                        <textarea name="system.duty">{{system.duty}}</textarea>
-                    </td>
-                </tr>
-            </tbody>
-
+            <tr>
+                <th>{{localize "MAGICALOGIA.Duty"}}</th>
+                <td colspan="5">
+                    <textarea name="system.duty">{{system.duty}}</textarea>
+                </td>
+            </tr>
         </table>
 
-        <h2>{{localize "MAGICALOGIA.Memo"}}</h2>
+        <h2 class="title">{{localize "MAGICALOGIA.TrueLook"}}</h2>
+        <table class="true-look">
+          <colgroup>
+            <col span="1" style="width: 150px">
+            <col span="1" style="width: 20%;">
+            <col span="1" style="width: 20%;">
+            <col span="1" style="width: 20%;">
+            <col span="1" style="width: 20%;">
+          </colgroup>
+
+          <tbody>
+            <tr style="height: 32px;">
+              <td rowspan="2" style="padding: 0;"><img src="{{system.true_look.img}}" data-edit="system.true_look.img" title="{{system.true_look.img}}" height="150" width="200"/></td>
+              <th>{{localize "Name"}}</th>
+              <td><input type="text" name="system.true_look.name" value="{{system.true_look.name}}"></td>
+              <th>{{localize "MAGICALOGIA.Effect"}}</th>
+              <td><input type="text" name="system.true_look.effect" value="{{system.true_look.effect}}"></td>
+            </tr>
+            <tr>
+              <td colspan="4">
+                {{editor enrichedTrueLook target="system.true_look.biography" button=true editable=editable }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 class="title">{{localize "MAGICALOGIA.Memo"}}</h2>
         {{editor enrichedBiography target="system.details.biography" button=true editable=editable }}
       </div>
 

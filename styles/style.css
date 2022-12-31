@@ -269,6 +269,11 @@
   resize: none;
 }
 
+.magicalogia .true-look .editor, .magicalogia .true-look .editor-content {
+  min-height: 114px;
+  resize: none;
+}
+
 
 .magicalogia .talent-table table, th, td {
   border: 1px solid black;

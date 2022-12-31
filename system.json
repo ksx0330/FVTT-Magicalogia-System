@@ -2,12 +2,12 @@
   "id": "magicalogia",
   "title": "Magicalogia System",
   "description": "magikalogia system",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "compatibility": {
     "minimum": "10",
     "verified": "10.288"
   },
-  "templateVersion": 2,
+  "templateVersion": 3,
   "authors": [
     {
       "name": "ltaeng",
