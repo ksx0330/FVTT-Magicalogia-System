@@ -64,7 +64,8 @@ export class MagicalogiaSettings {
 
 		Handlebars.registerHelper('doublet', function(arg1, options) {
 			let part = arg1[0];
-			console.log(part);
+			if (part.rolls.length != 2)
+				return "";
 
 			let manaList = ["A1", "B1", "C1", "D1", "E1", "F1"];
 			let isDoublet = part.rolls[0].result == part.rolls[1].result;

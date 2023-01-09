@@ -25,8 +25,19 @@
   grid-column: 6 span;
 }
 
-.magicalogia .sheet-wrapper .sheet-attributes .cell--name .profile-img, .magicalogia .sheet-wrapper .sheet-attributes .cell--name .profile-img img {
+.magicalogia .sheet-wrapper .sheet-attributes .cell--name .profile-img {
   width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--color-border-dark);
+  border-radius: 2px;
+  max-width: 100%;
+  text-align: center;
+  height: 150px;
+  margin-bottom: 6px;
+}
+
+.magicalogia .sheet-wrapper .sheet-attributes .cell--name .profile-img img {
+  border: none;
 }
 
 .magicalogia .sheet-wrapper .sheet-attributes .cell--name .horizon .title {
