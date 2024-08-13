@@ -25,6 +25,8 @@ export class MagicalogiaActor extends Actor {
       let table = JSON.parse(JSON.stringify(this.system.talent.table));
       let gap = JSON.parse(JSON.stringify(this.system.talent.gap));
 
+      let overflowX = this.system.talent.overflowX;
+
       if ('table' in data.system.talent) {
         for (let a = 0; a < Object.keys(data.system.talent.table).length; ++a) {
           let i = Object.keys(data.system.talent.table)[a];
@@ -53,13 +55,16 @@ export class MagicalogiaActor extends Actor {
         data.system.talent.gap[data.system.talent.curiosity - 1] = gap[data.system.talent.curiosity - 1] = true;
       }
 
-      data.system.talent.table = this._getTalentTable(table, gap);
+      if ('overflowX' in data.system.talent)
+        overflowX = data.system.talent.overflowX;
+
+      data.system.talent.table = this._getTalentTable(table, gap, overflowX);
     }
 
     super._preUpdate(data, options, userId);
   }
 
-  _getTalentTable(table, gap) {
+  _getTalentTable(table, gap, overflowX) {
     let nodes = [];
     
     for (var i = 0; i < 6; ++i)
@@ -89,7 +94,7 @@ export class MagicalogiaActor extends Actor {
           var ny = now.y + dy[d];
           var m = move[d];
 
-          if (gap[0] && (nx < 0 || nx >= 6) )
+          if (overflowX && (nx < 0 || nx >= 6) )
             nx = (nx < 0) ? 5 : 0;
           
           if (nx < 0 || nx >= 6 || ny < 0 || ny >= 11)

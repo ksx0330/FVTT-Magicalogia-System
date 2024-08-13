@@ -9,7 +9,7 @@ export class MagicalogiaActorSheet extends ActorSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["magicalogia", "sheet", "actor"],
       width: 800,
-      height: 735,
+      height: 780,
       tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "skill"}],
       dragDrop: [{dragSelector: ".item-list .item", dropSelector: null}]
     });
