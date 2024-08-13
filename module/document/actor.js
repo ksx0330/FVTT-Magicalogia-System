@@ -4,6 +4,17 @@ export class MagicalogiaActor extends Actor {
   prepareData() {
     super.prepareData();
 
+    let table = this.system.talent.table;
+    let misfortuneState = [false, false, false, false, false, false];
+    for (var i = 0; i < 6; ++i)
+    for (var j = 0; j < 11; ++j) {
+        if (table[i][j].misfortune)
+          misfortuneState[i] = true;
+    }
+
+    for (var i = 0; i < 6; ++i)
+    for (var j = 0; j < 11; ++j)
+        this.system.talent.table[i][j].debuf = misfortuneState[i];
   }
 
     /** @override */
@@ -77,6 +88,9 @@ export class MagicalogiaActor extends Actor {
           var nx = now.x + dx[d];
           var ny = now.y + dy[d];
           var m = move[d];
+
+          if (gap[0] && (nx < 0 || nx >= 6) )
+            nx = (nx < 0) ? 5 : 0;
           
           if (nx < 0 || nx >= 6 || ny < 0 || ny >= 11)
             continue;
@@ -92,14 +106,14 @@ export class MagicalogiaActor extends Actor {
         }
       }
     }
-
+    
     return table;
   }
 
 
-  async rollTalent(title, num, add, secret, misfortune = false) {
+  async rollTalent(title, num, add, secret, debuf = false) {
     if (!add) {
-      this._onRollDice(title, num, null, secret, misfortune); 
+      this._onRollDice(title, num, null, secret, debuf); 
       return;
     }
     
@@ -110,7 +124,7 @@ export class MagicalogiaActor extends Actor {
           confirm: {
             icon: '<i class="fas fa-check"></i>',
             label: "Confirm",
-            callback: () => this._onRollDice(title, num, $("#add").val(), secret, misfortune)
+            callback: () => this._onRollDice(title, num, $("#add").val(), secret, debuf)
           }
         },
         default: "confirm"
@@ -118,7 +132,7 @@ export class MagicalogiaActor extends Actor {
     
   }
 
-  async _onRollDice(title, num, add, secret, misfortune = false) {
+  async _onRollDice(title, num, add, secret, debuf = false) {
     
     // GM rolls.
     let chatData = {
@@ -135,7 +149,7 @@ export class MagicalogiaActor extends Actor {
     let formula = "2d6";
     if (add != null)
       formula += (add < 0) ? `${add}` : `+${add}`;
-    if (misfortune)
+    if (debuf)
       formula += "-1";
 
     let roll = new Roll(formula);

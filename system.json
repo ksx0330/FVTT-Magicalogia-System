@@ -2,7 +2,7 @@
   "id": "magicalogia",
   "title": "Magicalogia System",
   "description": "magikalogia system",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "compatibility": {
     "minimum": "11",
     "verified": "11.315"

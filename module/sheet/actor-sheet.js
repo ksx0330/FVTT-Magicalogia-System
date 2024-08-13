@@ -66,7 +66,7 @@ export class MagicalogiaActorSheet extends ActorSheet {
         data.system.tables.push({line: [], number: i});
         for (var j = 0; j < 6; ++j) {
             var name = String.fromCharCode(65 + j);
-            data.system.tables[i - 2].line.push({ id: `col-${j}-${i-2}`, title: `MAGICALOGIA.${name}${i}`, name: `system.talent.table.${j}.${i - 2}`, state: data.system.talent.table[j][i - 2].state, num: data.system.talent.table[j][i - 2].num, misfortune: data.system.talent.table[j][i - 2].misfortune, subTitle: (`col-${j}-${i-2}` == subTitle.id) ? true : false });
+            data.system.tables[i - 2].line.push({ id: `col-${j}-${i-2}`, title: `MAGICALOGIA.${name}${i}`, name: `system.talent.table.${j}.${i - 2}`, state: data.system.talent.table[j][i - 2].state, num: data.system.talent.table[j][i - 2].num, misfortune: data.system.talent.table[j][i - 2].misfortune, debuf: data.system.talent.table[j][i - 2].debuf, subTitle: (`col-${j}-${i-2}` == subTitle.id) ? true : false });
         }
     }
 
@@ -195,10 +195,10 @@ export class MagicalogiaActorSheet extends ActorSheet {
     let title = dataset.title;
     let add = true;
     let secret = false;
-    let misfortune = false;
+    let debuf = false;
 
-    if (dataset.misfortune == 'true')
-      misfortune = true;
+    if (dataset.debuf == 'true')
+      debuf = true;
   
     if (!event.ctrlKey && !game.settings.get("magicalogia", "rollAddon"))
       add = false;
@@ -222,7 +222,7 @@ export class MagicalogiaActorSheet extends ActorSheet {
       }
     }
     
-    await this.actor.rollTalent(title, num, add, secret, misfortune);
+    await this.actor.rollTalent(title, num, add, secret, debuf);
   }
 
   /* -------------------------------------------- */

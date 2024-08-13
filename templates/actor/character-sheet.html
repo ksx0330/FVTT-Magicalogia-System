@@ -222,7 +222,7 @@
                         <input class="talent-checkbox" type="checkbox" name="{{line.[0].name}}.state" {{#if line.[0].state}} checked {{/if}} >
                         <input type="hidden" name="{{line.[0].name}}.num" value="{{line.[0].num}}">
                         <input type="hidden" name="{{line.[0].name}}.misfortune" value="{{line.[0].misfortune}}" data-dtype="Boolean">
-                        <div class="talent-name" data-title="{{localTalent line.[0].title}}" data-num="{{line.[0].num}}" data-id="{{line.[0].id}}" data-misfortune="{{line.[0].misfortune}}">{{localTalent line.[0].title}} / {{line.[0].num}}</div>
+                        <div class="talent-name" data-title="{{localTalent line.[0].title}}" data-num="{{line.[0].num}}" data-id="{{line.[0].id}}" data-misfortune="{{line.[0].misfortune}}" data-debuf="{{line.[0].debuf}}">{{localTalent line.[0].title}} / {{line.[0].num}}</div>
                     </td>
 
                     <td {{#if ../system.talent.gap.[1]}} class="active" {{/if}}></td>
@@ -230,7 +230,7 @@
                         <input class="talent-checkbox" type="checkbox" name="{{line.[1].name}}.state" {{#if line.[1].state}} checked {{/if}} >
                         <input type="hidden" name="{{line.[1].name}}.num" value="{{line.[1].num}}">
                         <input type="hidden" name="{{line.[1].name}}.misfortune" value="{{line.[1].misfortune}}" data-dtype="Boolean">
-                        <div class="talent-name" data-title="{{localTalent line.[1].title}}" data-num="{{line.[1].num}}" data-id="{{line.[1].id}}" data-misfortune="{{line.[1].misfortune}}">{{localTalent line.[1].title}} / {{line.[1].num}}</div>
+                        <div class="talent-name" data-title="{{localTalent line.[1].title}}" data-num="{{line.[1].num}}" data-id="{{line.[1].id}}" data-misfortune="{{line.[1].misfortune}}" data-debuf="{{line.[1].debuf}}">{{localTalent line.[1].title}} / {{line.[1].num}}</div>
                     </td>
 
                     <td {{#if ../system.talent.gap.[2]}} class="active" {{/if}}></td>
@@ -239,7 +239,7 @@
                         <input class="talent-checkbox" type="checkbox" name="{{line.[2].name}}.state" {{#if line.[2].state}} checked {{/if}} >
                         <input type="hidden" name="{{line.[2].name}}.num" value="{{line.[2].num}}">
                         <input type="hidden" name="{{line.[2].name}}.misfortune" value="{{line.[2].misfortune}}" data-dtype="Boolean">
-                        <div class="talent-name" data-title="{{localTalent line.[2].title}}" data-num="{{line.[2].num}}" data-id="{{line.[2].id}}" data-misfortune="{{line.[2].misfortune}}">{{localTalent line.[2].title}} / {{line.[2].num}}</div>
+                        <div class="talent-name" data-title="{{localTalent line.[2].title}}" data-num="{{line.[2].num}}" data-id="{{line.[2].id}}" data-misfortune="{{line.[2].misfortune}}" data-debuf="{{line.[2].debuf}}">{{localTalent line.[2].title}} / {{line.[2].num}}</div>
                     </td>
 
                     <td {{#if ../system.talent.gap.[3]}} class="active" {{/if}}></td>
@@ -248,7 +248,7 @@
                         <input class="talent-checkbox" type="checkbox" name="{{line.[3].name}}.state" {{#if line.[3].state}} checked {{/if}} >
                         <input type="hidden" name="{{line.[3].name}}.num" value="{{line.[3].num}}">
                         <input type="hidden" name="{{line.[3].name}}.misfortune" value="{{line.[3].misfortune}}" data-dtype="Boolean">
-                        <div class="talent-name" data-title="{{localTalent line.[3].title}}" data-num="{{line.[3].num}}" data-id="{{line.[3].id}}" data-misfortune="{{line.[3].misfortune}}">{{localTalent line.[3].title}} / {{line.[3].num}}</div>
+                        <div class="talent-name" data-title="{{localTalent line.[3].title}}" data-num="{{line.[3].num}}" data-id="{{line.[3].id}}" data-misfortune="{{line.[3].misfortune}}" data-debuf="{{line.[3].debuf}}">{{localTalent line.[3].title}} / {{line.[3].num}}</div>
                     </td>
 
                     <td {{#if ../system.talent.gap.[4]}} class="active" {{/if}}></td>
@@ -257,7 +257,7 @@
                         <input class="talent-checkbox" type="checkbox" name="{{line.[4].name}}.state" {{#if line.[4].state}} checked {{/if}} >
                         <input type="hidden" name="{{line.[4].name}}.num" value="{{line.[4].num}}">
                         <input type="hidden" name="{{line.[4].name}}.misfortune" value="{{line.[4].misfortune}}" data-dtype="Boolean">
-                        <div class="talent-name" data-title="{{localTalent line.[4].title}}" data-num="{{line.[4].num}}" data-id="{{line.[4].id}}" data-misfortune="{{line.[4].misfortune}}">{{localTalent line.[4].title}} / {{line.[4].num}}</div>
+                        <div class="talent-name" data-title="{{localTalent line.[4].title}}" data-num="{{line.[4].num}}" data-id="{{line.[4].id}}" data-misfortune="{{line.[4].misfortune}}" data-debuf="{{line.[4].debuf}}">{{localTalent line.[4].title}} / {{line.[4].num}}</div>
                     </td>
 
                     <td {{#if ../system.talent.gap.[5]}} class="active" {{/if}}></td>
@@ -266,13 +266,26 @@
                         <input class="talent-checkbox" type="checkbox" name="{{line.[5].name}}.state" {{#if line.[5].state}} checked {{/if}} >
                         <input type="hidden" name="{{line.[5].name}}.num" value="{{line.[5].num}}">
                         <input type="hidden" name="{{line.[5].name}}.misfortune" value="{{line.[5].misfortune}}" data-dtype="Boolean">
-                        <div class="talent-name" data-title="{{localTalent line.[5].title}}" data-num="{{line.[5].num}}" data-id="{{line.[5].id}}" data-misfortune="{{line.[5].misfortune}}">{{localTalent line.[5].title}} / {{line.[5].num}}</div>
+                        <div class="talent-name" data-title="{{localTalent line.[5].title}}" data-num="{{line.[5].num}}" data-id="{{line.[5].id}}" data-misfortune="{{line.[5].misfortune}}" data-debuf="{{line.[5].debuf}}">{{localTalent line.[5].title}} / {{line.[5].num}}</div>
                     </td>
                     <th>{{number}}</th>
                 </tr>
                 {{/each}}
             </tbody>
           </table>
+
+                    
+          <table style="text-align: center;">
+            <colgroup>
+                <col span="1" style="width: 50%;">
+                <col span="1" style="width: 50%;">
+            </colgroup>
+            <tr>
+                <th>{{localize "MAGICALOGIA.OverflowX"}}</th>
+                <td><input type="checkbox" name="system.talent.overflowX" data-dtype="Boolean" {{#if system.talent.overflowX}} checked {{/if}}></td>
+            </tr>
+            
+        </table>
 
           <input type="hidden" name="system.talent.subTitle.id" value="{{system.talent.subTitle.id}}">
           <input type="hidden" name="system.talent.subTitle.title" value="{{system.talent.subTitle.title}}">
