@@ -643,6 +643,11 @@
   height: 32px;
 }
 
+.magicalogia .sheet-body .cell .cell--title.select-talent {
+  justify-content: space-between;
+  cursor: pointer;
+}
+
 .magicalogia .plot-header {
   height: 35px;
   font-weight: bold;
@@ -737,4 +742,10 @@
 
 .share-dialog .user-item {
   margin-bottom: 4px;
+}
+
+.magicalogia .talent-select {
+  background-color: #3c3a3a;
+  color: white;
+  font-weight: bold;
 }

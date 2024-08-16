@@ -70,9 +70,9 @@ Hooks.on("renderChatPopout", (app, html, data) => chatListeners(html));
 Hooks.on("updatePlotBar", (html) => chatListeners(html));
 
 async function chatListeners(html) {
-    html.on('click', '.roll-talent', async ev => {
+    html.on('click', '.roll-talent', async event => {
         event.preventDefault();
-        const data = ev.currentTarget.dataset;
+        const data = event.currentTarget.dataset;
         const speaker = ChatMessage.getSpeaker();
         let actor = null;
         
@@ -97,26 +97,39 @@ async function chatListeners(html) {
         if (event.altKey)
           secret = true;
         
-        for (var i = 2; i <= 12; ++i)
-        for (var j = 0; j < 6; ++j) {
-            let name = String.fromCharCode(65 + j);
-            let title = game.settings.get("magicalogia", `MAGICALOGIA.${name}${i}`);
-            title = (title !== "") ? title : game.i18n.localize(`MAGICALOGIA.${name}${i}`);
-            
-            if (title === data.talent) {
-                let num = actor.system.talent.table[j][i - 2].num;
-                let misfortune = actor.system.talent.table[j][i - 2].misfortune;
+        let tmpTitle = data.talent.split(game.i18n.localize("MAGICALOGIA.Tmp"));
+        if (tmpTitle.length == 2) {
+            let name_id = (tmpTitle[0].trim() == '') ? Math.floor(Math.random() * 6) : null;
+            if (name_id == null) {
+                for (let i = 0; i < 6; ++i) {
+                    let name = String.fromCharCode(65 + i);
+                    let title = game.settings.get("magicalogia", `MAGICALOGIA.${name}1`);
+                    title = (title !== "") ? title : game.i18n.localize(`MAGICALOGIA.${name}1`);
+                    if (title == tmpTitle[0].trim())
+                        name_id = i;
+                }
+            }
+            let id = Math.floor(Math.random() * 11) + 2;
+
+            let name = String.fromCharCode(65 + name_id);
+            let title = game.settings.get("magicalogia", `MAGICALOGIA.${name}${id}`);
+            title = (title !== "") ? title : game.i18n.localize(`MAGICALOGIA.${name}${id}`);
+            let num = actor.system.talent.table[name_id][id - 2].num;
+            return actor.rollTalent(title, num, add, secret);
+
+        } else {
+            for (var i = 2; i <= 12; ++i)
+            for (var j = 0; j < 6; ++j) {
+                let name = String.fromCharCode(65 + j);
+                let title = game.settings.get("magicalogia", `MAGICALOGIA.${name}${i}`);
+                title = (title !== "") ? title : game.i18n.localize(`MAGICALOGIA.${name}${i}`);
                 
-                return actor.rollTalent(title, num, add, secret, misfortune);
+                if (title === data.talent) {
+                    let num = actor.system.talent.table[j][i - 2].num;
+                    return actor.rollTalent(title, num, add, secret);
+                }
             }
         }
-        
-        new Dialog({
-            title: "alert",
-            content: `Error ${data.talent}`,
-            buttons: {}
-        }).render(true);
-        return;
     });
 
 
