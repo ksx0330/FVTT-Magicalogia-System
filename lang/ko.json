@@ -156,9 +156,20 @@
     "MAGICALOGIA.NotStopBattle": "열려 있는 마법전이 없습니다.",
 
     
+    "MAGICALOGIA.SheetClassCharacter": "마기카로기아 캐릭터 시트",
+    "MAGICALOGIA.SheetClassItem": "마기카로기아 아이템 시트",
     "MAGICALOGIA.SelectActor": "액터를 선택해주세요",
+    "MAGICALOGIA.MustUseActor": "액터(토큰 또는 캐릭터 시트)에서 판정해야 합니다.",
     "MAGICALOGIA.ReadyPlot": "플롯이 준비되었습니다",
     "MAGICALOGIA.AwaitPlot": "플롯 준비가 해제되었습니다.",
+    "MAGICALOGIA.RevealPlot": "플롯을 공개할까요?",
+    "MAGICALOGIA.Confirm": "확인",
+    "MAGICALOGIA.SelectUser": "유저 선택",
+    "MAGICALOGIA.Share": "공유",
+    "MAGICALOGIA.CannotUse": "사용할 수 없습니다",
+    "MAGICALOGIA.WordAlreadyUsed": "이미 사용한 주구입니다.",
+    "MAGICALOGIA.PowerAlreadyUsed": "이미 사용한 운명의 힘입니다.",
+    "MAGICALOGIA.RollAddonPrompt": "수정치를 입력하세요",
 
     
     "SETTINGS.TalentTable": "특기 리스트",

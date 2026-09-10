@@ -1,19 +1,20 @@
 {
   "id": "magicalogia",
   "title": "Magicalogia System",
-  "description": "magikalogia system",
-  "version": "0.1.7",
+  "description": "Foundry VTT system for Magicalogia (マギカロギア). Fork of ksx0330/FVTT-Magicalogia-System with Foundry V14 compatibility.",
+  "version": "0.2.2",
   "compatibility": {
-    "minimum": "11",
-    "verified": "11.315"
+    "minimum": "13",
+    "verified": "14.365"
   },
-  "templateVersion": 3,
   "authors": [
     {
       "name": "ltaeng",
       "email": "ksx0330@gmail.com",
-      "discord": "Ltaeng#2837",
-      "flags": {}
+      "discord": "Ltaeng#2837"
+    },
+    {
+      "name": "V14 fork maintainers"
     }
   ],
   "esmodules": [
@@ -24,26 +25,42 @@
   ],
   "languages": [
     {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
       "lang": "ko",
       "name": "Korean",
-      "path": "lang/ko.json",
-      "flags": {}
+      "path": "lang/ko.json"
     },
     {
       "lang": "ja",
       "name": "日本語",
-      "path": "lang/ja.json",
-      "flags": {}
+      "path": "lang/ja.json"
+    },
+    {
+      "lang": "zh-TW",
+      "name": "正體中文",
+      "path": "lang/zh-TW.json"
+    },
+    {
+      "lang": "zh-CN",
+      "name": "简体中文",
+      "path": "lang/zh-CN.json"
     }
   ],
   "packs": [],
-  "gridDistance": 5,
-  "gridUnits": "ft",
+  "grid": {
+    "distance": 5,
+    "units": "ft"
+  },
   "socket": true,
-  "primaryTokenAttribute": "health",
-  "secondaryTokenAttribute": "sanity",
-  "url": "https://github.com/ksx0330/FVTT-Magicalogia-System",
-  "manifest": "https://raw.githubusercontent.com/ksx0330/FVTT-Magicalogia-System/main/system.json",
-  "download": "https://codeload.github.com/ksx0330/FVTT-Magicalogia-System/zip/main",
+  "primaryTokenAttribute": "mana",
+  "secondaryTokenAttribute": "tmp_mana",
+  "url": "https://github.com/AgentKevin2077/magi-v14-forge",
+  "manifest": "https://raw.githubusercontent.com/AgentKevin2077/magi-v14-forge/main/system.json",
+  "download": "https://github.com/AgentKevin2077/magi-v14-forge/archive/refs/heads/main.zip",
+  "bugs": "https://github.com/AgentKevin2077/magi-v14-forge/issues",
   "license": "LICENSE.txt"
 }

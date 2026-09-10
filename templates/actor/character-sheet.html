@@ -90,15 +90,13 @@
         <div class="horizon span-8 gap">
           <label class="title">{{localize "MAGICALOGIA.Curiosity"}}</label>
           <select name="system.talent.curiosity">
-            {{#select system.talent.curiosity}}
-            <option value="0">-</option>
-            <option value="1">{{localize "MAGICALOGIA.A1"}}</option>
-            <option value="2">{{localize "MAGICALOGIA.B1"}}</option>
-            <option value="3">{{localize "MAGICALOGIA.C1"}}</option>
-            <option value="4">{{localize "MAGICALOGIA.D1"}}</option>
-            <option value="5">{{localize "MAGICALOGIA.E1"}}</option>
-            <option value="6">{{localize "MAGICALOGIA.F1"}}</option>
-            {{/select}}
+            <option value="0" {{#ifEquals system.talent.curiosity 0}}selected{{/ifEquals}}>-</option>
+            <option value="1" {{#ifEquals system.talent.curiosity 1}}selected{{/ifEquals}}>{{localize "MAGICALOGIA.A1"}}</option>
+            <option value="2" {{#ifEquals system.talent.curiosity 2}}selected{{/ifEquals}}>{{localize "MAGICALOGIA.B1"}}</option>
+            <option value="3" {{#ifEquals system.talent.curiosity 3}}selected{{/ifEquals}}>{{localize "MAGICALOGIA.C1"}}</option>
+            <option value="4" {{#ifEquals system.talent.curiosity 4}}selected{{/ifEquals}}>{{localize "MAGICALOGIA.D1"}}</option>
+            <option value="5" {{#ifEquals system.talent.curiosity 5}}selected{{/ifEquals}}>{{localize "MAGICALOGIA.E1"}}</option>
+            <option value="6" {{#ifEquals system.talent.curiosity 6}}selected{{/ifEquals}}>{{localize "MAGICALOGIA.F1"}}</option>
           </select>
         </div>
 
@@ -352,14 +350,14 @@
             </tr>
             <tr>
               <td colspan="4">
-                {{editor enrichedTrueLook target="system.true_look.biography" button=true editable=editable }}
+                {{editor enrichedTrueLook target="system.true_look.biography" engine="prosemirror" button=true editable=editable }}
               </td>
             </tr>
           </tbody>
         </table>
 
         <h2 class="title">{{localize "MAGICALOGIA.Memo"}}</h2>
-        {{editor enrichedBiography target="system.details.biography" button=true editable=editable }}
+        {{editor enrichedBiography target="system.details.biography" engine="prosemirror" button=true editable=editable }}
       </div>
 
 

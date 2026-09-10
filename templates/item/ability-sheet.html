@@ -43,11 +43,9 @@
           {{localize "MAGICALOGIA.Type"}}
         </label>
         <select name="system.type" class="">
-          {{#select system.type}}
-          <option value="{{localize "MAGICALOGIA.Summon"}}">{{localize "MAGICALOGIA.Summon"}}</option>
-          <option value="{{localize "MAGICALOGIA.Spell"}}">{{localize "MAGICALOGIA.Spell"}}</option>
-          <option value="{{localize "MAGICALOGIA.Equipment"}}">{{localize "MAGICALOGIA.Equipment"}}</option>
-          {{/select}}
+          <option value="{{localize "MAGICALOGIA.Summon"}}" {{#ifEquals system.type (localize "MAGICALOGIA.Summon")}}selected{{/ifEquals}}>{{localize "MAGICALOGIA.Summon"}}</option>
+          <option value="{{localize "MAGICALOGIA.Spell"}}" {{#ifEquals system.type (localize "MAGICALOGIA.Spell")}}selected{{/ifEquals}}>{{localize "MAGICALOGIA.Spell"}}</option>
+          <option value="{{localize "MAGICALOGIA.Equipment"}}" {{#ifEquals system.type (localize "MAGICALOGIA.Equipment")}}selected{{/ifEquals}}>{{localize "MAGICALOGIA.Equipment"}}</option>
         </select>
       </div>
 
@@ -84,7 +82,7 @@
     </section>
 
     <h2 class="title">{{localize "MAGICALOGIA.Description"}}</h2>
-    {{editor enrichedBiography target="system.description" button=true editable=editable }}
+    {{editor enrichedBiography target="system.description" engine="prosemirror" button=true editable=editable }}
   </section>
 
 </form>

@@ -156,9 +156,20 @@
     "MAGICALOGIA.NotStopBattle": "開戦中の魔法戦がありません。",
 
     
+    "MAGICALOGIA.SheetClassCharacter": "マギカロギア キャラクターシート",
+    "MAGICALOGIA.SheetClassItem": "マギカロギア アイテムシート",
     "MAGICALOGIA.SelectActor": "アクターを選択してください。",
+    "MAGICALOGIA.MustUseActor": "アクター（トークンまたはキャラクターシート）から判定してください。",
     "MAGICALOGIA.ReadyPlot": "プロットの選択が完了しました。",
     "MAGICALOGIA.AwaitPlot": "プロット選択状態が解除されました。",
+    "MAGICALOGIA.RevealPlot": "プロットを公開しますか？",
+    "MAGICALOGIA.Confirm": "確認",
+    "MAGICALOGIA.SelectUser": "ユーザー選択",
+    "MAGICALOGIA.Share": "共有",
+    "MAGICALOGIA.CannotUse": "使用できません",
+    "MAGICALOGIA.WordAlreadyUsed": "この呪句は既に使用されています。",
+    "MAGICALOGIA.PowerAlreadyUsed": "この運命の力は既に使用されています。",
+    "MAGICALOGIA.RollAddonPrompt": "修正値を入力してください",
 
     
     "SETTINGS.TalentTable": "特技一覧",

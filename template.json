@@ -23,7 +23,8 @@
         "gap": {"0": false, "1": false, "2": false, "3": false, "4": false, "5": false},
         "curiosity": 0,
         "spirit_talent": { "name": "", "misfortune": false },
-        "subTitle": {"id": "", "title": "", "state": false}
+        "subTitle": {"id": "", "title": "", "state": false},
+        "overflowX": false
     },
     "true_look": {
         "check": false,
