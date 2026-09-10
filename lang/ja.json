@@ -170,6 +170,7 @@
     "MAGICALOGIA.WordAlreadyUsed": "この呪句は既に使用されています。",
     "MAGICALOGIA.PowerAlreadyUsed": "この運命の力は既に使用されています。",
     "MAGICALOGIA.RollAddonPrompt": "修正値を入力してください",
+    "MAGICALOGIA.TalentGridRebuilt": "マギカロギア: 既存キャラクターの特技目標値を再計算しました。",
 
     
     "SETTINGS.TalentTable": "特技一覧",

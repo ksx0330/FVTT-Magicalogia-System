@@ -169,6 +169,7 @@
     "MAGICALOGIA.WordAlreadyUsed": "This incantation has already been used.",
     "MAGICALOGIA.PowerAlreadyUsed": "This destiny power has already been used.",
     "MAGICALOGIA.RollAddonPrompt": "Enter a modifier",
+    "MAGICALOGIA.TalentGridRebuilt": "Magicalogia: rebuilt specialty target numbers on existing characters.",
 
     "SETTINGS.TalentTable": "Specialty names",
     "SETTINGS.TalentTableDesc": "Override the default specialty grid labels for this world.",

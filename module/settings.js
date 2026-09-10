@@ -21,6 +21,7 @@ export class MagicalogiaSettings {
       config: true
     });
 
+    // Gate for the one-time actor repair in module/migrate.js runWorldMigration().
     game.settings.register("magicalogia", "schemaVersion", {
       name: "Magicalogia schema version",
       scope: "world",
@@ -66,8 +67,8 @@ export class MagicalogiaSettings {
         return `background: linear-gradient(90deg, #569ccb ${percent}%, #5d5d5d 0%);`;
       },
       doublet(arg1) {
-        const part = arg1?.[0];
-        if (!part || part.rolls?.length != 2) return "";
+        const part = arg1[0];
+        if (part.rolls.length != 2) return "";
         const manaList = ["A1", "B1", "C1", "D1", "E1", "F1"];
         const isDoublet = part.rolls[0].result == part.rolls[1].result;
         if (!isDoublet) return "";

@@ -170,6 +170,7 @@
     "MAGICALOGIA.WordAlreadyUsed": "이미 사용한 주구입니다.",
     "MAGICALOGIA.PowerAlreadyUsed": "이미 사용한 운명의 힘입니다.",
     "MAGICALOGIA.RollAddonPrompt": "수정치를 입력하세요",
+    "MAGICALOGIA.TalentGridRebuilt": "마기카로기아: 기존 캐릭터의 특기 목표치를 다시 계산했습니다.",
 
     
     "SETTINGS.TalentTable": "특기 리스트",

@@ -85,6 +85,18 @@ export async function evaluateRoll(formula) {
   return roll;
 }
 
+/**
+ * User#updateTokenTargets became internal (User#_onUpdateTokenTargets) in the V13
+ * targeting rework; TokenLayer#setTargets is the public replacement.
+ */
+export function clearTargets() {
+  if (typeof canvas?.tokens?.setTargets === "function") {
+    canvas.tokens.setTargets([]);
+  } else {
+    game.user.updateTokenTargets();
+  }
+}
+
 export function snapToGrid(x, y) {
   const grid = canvas.grid;
   if (typeof grid.getSnappedPoint === "function") {

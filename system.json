@@ -1,8 +1,8 @@
 {
   "id": "magicalogia",
   "title": "Magicalogia System",
-  "description": "Foundry VTT system for Magicalogia (マギカロギア). Fork of ksx0330/FVTT-Magicalogia-System with Foundry V14 compatibility.",
-  "version": "0.2.2",
+  "description": "magikalogia system",
+  "version": "0.2.0",
   "compatibility": {
     "minimum": "13",
     "verified": "14.365"
@@ -11,10 +11,13 @@
     {
       "name": "ltaeng",
       "email": "ksx0330@gmail.com",
-      "discord": "Ltaeng#2837"
+      "discord": "ltaeng",
+      "flags": {}
     },
     {
-      "name": "V14 fork maintainers"
+      "name": "meowleftandright (喵佐)",
+      "discord": "meowleftandright",
+      "flags": {}
     }
   ],
   "esmodules": [
@@ -58,9 +61,8 @@
   "socket": true,
   "primaryTokenAttribute": "mana",
   "secondaryTokenAttribute": "tmp_mana",
-  "url": "https://github.com/AgentKevin2077/magi-v14-forge",
-  "manifest": "https://raw.githubusercontent.com/AgentKevin2077/magi-v14-forge/main/system.json",
-  "download": "https://github.com/AgentKevin2077/magi-v14-forge/archive/refs/heads/main.zip",
-  "bugs": "https://github.com/AgentKevin2077/magi-v14-forge/issues",
+  "url": "https://github.com/ksx0330/FVTT-Magicalogia-System",
+  "manifest": "https://raw.githubusercontent.com/ksx0330/FVTT-Magicalogia-System/main/system.json",
+  "download": "https://codeload.github.com/ksx0330/FVTT-Magicalogia-System/zip/main",
   "license": "LICENSE.txt"
 }

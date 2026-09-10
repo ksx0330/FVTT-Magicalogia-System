@@ -163,6 +163,7 @@
     "MAGICALOGIA.WordAlreadyUsed": "这个咒句已经使用过了。",
     "MAGICALOGIA.PowerAlreadyUsed": "这个命运之力已经使用过了。",
     "MAGICALOGIA.RollAddonPrompt": "请输入修正值",
+    "MAGICALOGIA.TalentGridRebuilt": "魔导书大战：已重新计算既有角色的指定特技目标值。",
     "SETTINGS.TalentTable": "特技名称",
     "SETTINGS.TalentTableDesc": "覆写本世界预设的特技表标签。",
     "SETTINGS.RollAddon": "每次判定都询问修正值",

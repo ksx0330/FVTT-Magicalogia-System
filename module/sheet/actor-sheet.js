@@ -56,12 +56,7 @@ export class MagicalogiaActorSheet extends ActorSheet {
       data.system.tables.push({ line: [], number: i });
       for (let j = 0; j < 6; ++j) {
         const name = String.fromCharCode(65 + j);
-        const cell = data.system.talent.table?.[j]?.[i - 2] ?? {
-          state: false,
-          num: "12",
-          misfortune: false,
-          debuf: false
-        };
+        const cell = data.system.talent.table[j][i - 2];
         data.system.tables[i - 2].line.push({
           id: `col-${j}-${i - 2}`,
           title: `MAGICALOGIA.${name}${i}`,

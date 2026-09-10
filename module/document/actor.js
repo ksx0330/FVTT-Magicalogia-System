@@ -1,11 +1,82 @@
-import { refreshTalentGrid, applyTalentPatch } from "../talent-graph.js";
-import { migrateActorSource } from "../migrate-actor.js";
+import { migrateActorSource } from "../migrate.js";
 import { Dialog, createChatMessage, getSpeaker, getWhisperRecipients, evaluateRoll, renderTemplate } from "../compat.js";
 
 const ActorDocument = globalThis.foundry?.documents?.Actor ?? globalThis.Actor;
 
+function applyMisfortuneDebuf(table) {
+  const misfortuneState = table.map((col) => col.some((cell) => cell.misfortune));
+  for (let i = 0; i < 6; ++i)
+  for (let j = 0; j < 11; ++j)
+    table[i][j].debuf = misfortuneState[i];
+  return table;
+}
+
+/**
+ * Checked specialties start at 5. Adjacent cells cost 1 (same column) or 2
+ * (neighboring columns), unless a "gap" checkbox halves the column-change cost.
+ * Assumes a clean 6x11 array and fully-keyed gap; old-shaped data is migrate.js's job.
+ */
+function getTalentTable(table, gap, overflowX) {
+  const next = table.map((col) => col.map((cell) => ({ ...cell })));
+  const nodes = [];
+
+  for (let i = 0; i < 6; ++i)
+  for (let j = 0; j < 11; ++j) {
+    if (next[i][j].misfortune == false && next[i][j].state == true) {
+      nodes.push({ x: i, y: j });
+      next[i][j].num = "5";
+    } else
+      next[i][j].num = "12";
+  }
+
+  const dx = [0, 0, 1, -1];
+  const dy = [1, -1, 0, 0];
+  const move = [1, 1, 2, 2];
+
+  for (let i = 0; i < nodes.length; ++i) {
+    const queue = [nodes[i]];
+
+    while (queue.length != 0) {
+      const now = queue.shift();
+
+      if (+next[now.x][now.y].num == 12)
+        continue;
+
+      for (let d = 0; d < 4; ++d) {
+        let nx = now.x + dx[d];
+        const ny = now.y + dy[d];
+        let m = move[d];
+
+        if (overflowX && (nx < 0 || nx >= 6))
+          nx = (nx < 0) ? 5 : 0;
+
+        if (nx < 0 || nx >= 6 || ny < 0 || ny >= 11)
+          continue;
+
+        const blocked = ((now.x == 0 && nx == 5) || (now.x == 5 && nx == 0)) ? gap[0] : gap[(nx > now.x) ? nx : now.x];
+        if (m == 2 && blocked)
+          m = 1;
+
+        if (Number(next[nx][ny].num) > Number(next[now.x][now.y].num) + m) {
+          next[nx][ny].num = String(Number(next[now.x][now.y].num) + m);
+          queue.push({ x: nx, y: ny });
+        }
+      }
+    }
+  }
+
+  return applyMisfortuneDebuf(next);
+}
+
+export function refreshTalentGrid(talent) {
+  const source = talent ?? {};
+  const overflowX = !!source.overflowX;
+  return { table: getTalentTable(source.table, source.gap, overflowX), gap: source.gap, overflowX };
+}
+
 export class MagicalogiaActor extends ActorDocument {
 
+  // Runs before prepareData on every document load — the earliest point to repair pre-V14 data (module/migrate.js).
   static migrateData(source) {
     if (typeof super.migrateData === "function") {
       source = super.migrateData(source) ?? source;
@@ -25,23 +96,42 @@ export class MagicalogiaActor extends ActorDocument {
     this.system.talent.overflowX = refreshed.overflowX;
   }
 
-  /**
-   * Recalculate specialty target numbers whenever the talent grid changes.
-   * Accepts both array grids and the object-keyed grids Foundry form submits.
-   */
+  // Foundry submits even a single checkbox edit as a sparse diff keyed by index
+  // (`{"3":{"5":{"state":true}}}`); merge it in and recompute target numbers.
   async _preUpdate(changed, options, user) {
     if (changed.system?.talent) {
       const talentChange = changed.system.talent;
-      const result = applyTalentPatch(
-        this.system.talent.table,
-        this.system.talent.gap,
-        this.system.talent.overflowX,
-        talentChange
-      );
-      changed.system.talent.table = result.table;
-      if (talentChange.curiosity != 0 && talentChange.gap) {
-        changed.system.talent.gap = talentChange.gap;
+      const table = this.system.talent.table.map((col) => col.map((cell) => ({ ...cell })));
+      let gap = { ...this.system.talent.gap };
+      let overflowX = !!this.system.talent.overflowX;
+
+      if (talentChange.table) {
+        for (const i of Object.keys(talentChange.table))
+        for (const j of Object.keys(talentChange.table[i]))
+        for (const key of Object.keys(talentChange.table[i][j]))
+          table[Number(i)][Number(j)][key] = talentChange.table[i][j][key];
       }
+
+      if (talentChange.gap) {
+        for (const i of Object.keys(talentChange.gap))
+          gap[Number(i)] = talentChange.gap[i];
+      }
+
+      // curiosity's <select> lives in the same <form> as the gap checkboxes, so it
+      // rides along on every submit — only re-derive gap when it actually changed,
+      // or a plain gap click gets clobbered by the unchanged curiosity value.
+      if ("curiosity" in talentChange && talentChange.curiosity != 0
+        && Number(talentChange.curiosity) !== Number(this.system.talent.curiosity)) {
+        gap = { 0: false, 1: false, 2: false, 3: false, 4: false, 5: false };
+        gap[talentChange.curiosity] = true;
+        gap[talentChange.curiosity - 1] = true;
+        changed.system.talent.gap = { ...gap };
+      }
+
+      if ("overflowX" in talentChange)
+        overflowX = talentChange.overflowX;
+
+      changed.system.talent.table = getTalentTable(table, gap, overflowX);
     }
 
     return super._preUpdate(changed, options, user);
